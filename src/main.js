@@ -22,8 +22,9 @@ Vue.config.productionTip = false
 Vue.extend(Alert)
 Vue.use(vMessage)
 
-// import Vconsole from 'vconsole'
-// new Vconsole()
+import Vconsole from 'vconsole'
+new Vconsole()
+
 new Vue({
   render: h => h(App),
   router,
