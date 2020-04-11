@@ -1,12 +1,3 @@
-const outputDir = process.env.outputDir || 'docs'
-
-/* eslint-disable */
-const output = process.env.NODE_ENV === 'production' ? {} : {
-  filename: './static/js/[name].[hash:8].js',
-  chunkFilename: './static/js/chunk-[name][contenthash].js'
-}
-/* eslint-disable */
-
 module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
   devServer: {
@@ -16,15 +7,7 @@ module.exports = {
       errors: true
     }
   },
-  // publicPath: process.env.NODE_ENV === 'production' ? '': '/app/',
-  outputDir,
   configureWebpack: {
-    output,
-    //关闭 webpack 的性能提示
-    // performance: {
-    //   hints:false
-    // },
-    // 或者 警告 webpack 的性能提示
     performance: {
       hints:'warning',
       //入口起点的最大体积
