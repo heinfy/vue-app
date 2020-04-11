@@ -18,7 +18,7 @@ export default {
       console.log(data)
     },
     async addGoods() {
-      let obj = {
+      const obj = {
         name: '撒旦法',
         price: '12',
         count: '122',

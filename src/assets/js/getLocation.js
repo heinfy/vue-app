@@ -1,8 +1,8 @@
-let getPosition = function(cb, errcb) {
+const getPosition = function(cb, errcb) {
   // eslint-disable-next-line
   let geolocation = new qq.maps.Geolocation('GZTBZ-BYWCX-32Z4O-Z3RDI-ZZMD5-NFFWK', 'myapp')
   if (geolocation) {
-    let options = { timeout: 1000, failTipFlag: true }
+    const options = { timeout: 1000, failTipFlag: true }
     /* eslint-disable */
     geolocation.getLocation(position => {
       console.log('success定位成功执行的方法', position)

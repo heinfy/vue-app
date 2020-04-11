@@ -11,6 +11,10 @@ module.exports = {
     parser: 'babel-eslint'
   },
   rules: {
+    "prefer-const": ["error", {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+    }],
     "template-curly-spacing" : "off",
     "indent": "off",
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
