@@ -7,6 +7,7 @@ module.exports = {
       errors: true
     }
   },
+  publicPath: '/vue-mobile-app/',
   configureWebpack: {
     performance: {
       hints:'warning',
