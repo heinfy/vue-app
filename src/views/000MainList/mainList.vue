@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <header-component :title="'功能模块列表'" :border="true" :instruction="'times'"></header-component>
+    <header-component :title="'功能列表'" :border="true" :instruction="'times'"></header-component>
     <ul class="main-list">
       <li @click="routeModule(0)" :class="[index === 0 ? 'active' : '']">
         <router-link :to="{ name: 'checkidcard' }">0 - 身份证检验功能</router-link>
