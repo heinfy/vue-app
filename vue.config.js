@@ -16,8 +16,7 @@ module.exports = {
       errors: true
     }
   },
-  // publicPath: process.env.NODE_ENV === 'production' ? '': '/vue-mobile-app/',
-  publicPath: '/vue-mobile-app/',
+  // publicPath: process.env.NODE_ENV === 'production' ? '': '/app/',
   outputDir,
   configureWebpack: {
     output,
