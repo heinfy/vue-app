@@ -35,6 +35,9 @@
       <li @click="routeModule(10)" :class="[index === 10 ? 'active' : '']">
         <router-link :to="{ name: 'toast' }">10 - toast</router-link>
       </li>
+      <li @click="routeModule(11)" :class="[index === 11 ? 'active' : '']">
+        <router-link :to="{ name: 'html2canvas' }">11 - html2canvas绘图</router-link>
+      </li>
       <li @click="routeModule(100)" :class="[index === 100 ? 'active' : '']">
         <router-link :to="{ name: 'tmp' }">100 - tmp 模板</router-link>
       </li>

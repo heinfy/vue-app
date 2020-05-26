@@ -1,10 +1,19 @@
 module.exports = {
-  lintOnSave: process.env.NODE_ENV !== 'production',
+  lintOnSave: false, // process.env.NODE_ENV !== 'production'
   devServer: {
     port: 3000,
     overlay: {
       warnings: true,
       errors: true
+    },
+    proxy: {
+      "/": {
+        target: "http://qa02-activity.xuebadev.com",
+        changeOrigin: true,
+        pathRewrite: {
+          ["^/"]: ""
+        }
+      }
     }
   },
   publicPath: '/vue-mobile-app/',

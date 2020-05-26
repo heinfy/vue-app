@@ -20,6 +20,7 @@
 8. calendar组件1
 9. [InfiniteScroll](http://mint-ui.github.io/docs/#/en2/infinite-scroll)
 10. Toast提示
+11. html2canva绘制页面
 
 ## 适配方法
 

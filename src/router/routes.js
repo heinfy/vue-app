@@ -91,12 +91,20 @@ const routes = [
     index: 11,
     path: '/toast',
     name: 'toast',
-    filePath: '012Toast',
+    filePath: '012toast',
     fileName: 'toast',
     intro: 'Toast 提示组件'
   },
   {
     index: 12,
+    path: '/html2canvas',
+    name: 'html2canvas',
+    filePath: '013html2canvas',
+    fileName: 'html2canvas',
+    intro: 'canvas绘制页面'
+  },
+  {
+    index: 100,
     path: '/tmp',
     name: 'tmp',
     filePath: 'tmp',

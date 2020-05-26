@@ -6,12 +6,34 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="//g.alicdn.com/fdilab/lib3rd/viewport-units-buggyfill/0.6.2/??viewport-units-buggyfill.hacks.min.js,viewport-units-buggyfill.min.js"></script>
   </head>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <script>
+      window.onload = function () {
+        window.viewportUnitsBuggyfill.init({
+          hacks: window.viewportUnitsBuggyfillHacks
+        });
+        const winDPI = window.devicePixelRatio;
+        const uAgent = window.navigator.userAgent;
+        const screenHeight = window.screen.height;
+        const screenWidth = window.screen.width;
+        const winWidth = window.innerWidth;
+        const winHeight = window.innerHeight;
+        console.error("机型参数：\n" +
+            "Windows DPI:" + winDPI +
+            ";\nuAgent:" + uAgent +
+            ";\nScreen Width:" + screenWidth +
+            ";\nScreen Height:" + screenHeight +
+            ";\nWindow Width:" + winWidth +
+            ";\nWindow Height:" + winHeight
+        )
+      }
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>
