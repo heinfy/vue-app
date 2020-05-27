@@ -8,8 +8,10 @@
 </template>
 
 <script>
+import { countdown } from '../../utils/util'
 export default {
-  name: 'tmp'
+  name: 'tmp',
+  mounted() {}
 }
 </script>
 

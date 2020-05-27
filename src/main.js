@@ -1,4 +1,8 @@
 import Vue from 'vue'
+// alloyfinger 手势库
+import AlloyFinger from 'alloyfinger'
+import AlloyFingerPlugin from 'alloyfinger/vue/alloy_finger_vue.js'
+
 import App from './App.vue'
 import { router } from './router/index.js'
 import store from './store/index.js'
@@ -21,6 +25,9 @@ Vue.config.productionTip = false
 
 Vue.extend(Alert)
 Vue.use(vMessage)
+Vue.use(AlloyFingerPlugin,{
+  AlloyFinger
+})
 
 import Vconsole from 'vconsole'
 new Vconsole()

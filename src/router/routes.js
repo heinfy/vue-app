@@ -89,6 +89,14 @@ const routes = [
   },
   {
     index: 11,
+    path: '/alloyfinger',
+    name: 'alloyfinger',
+    filePath: '011alloyfinger',
+    fileName: 'alloyfinger',
+    intro: 'alloyfinger手势库'
+  },
+  {
+    index: 12,
     path: '/toast',
     name: 'toast',
     filePath: '012toast',
@@ -96,7 +104,7 @@ const routes = [
     intro: 'Toast 提示组件'
   },
   {
-    index: 12,
+    index: 13,
     path: '/html2canvas',
     name: 'html2canvas',
     filePath: '013html2canvas',

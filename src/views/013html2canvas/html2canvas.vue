@@ -1,5 +1,6 @@
 <template>
   <div class="home ignore-">
+    <header-component :title="'html2canvas'"></header-component>
     <div ref="imageWrapper" id="img" class="draw">
       <h1>测试文本</h1>
       <img src="http://wenba-ooo-qiniu.xueba100.com/c5f6b3acab1cf1c74f5337163406c29a.png">
