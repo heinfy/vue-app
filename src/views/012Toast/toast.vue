@@ -3,13 +3,14 @@
     <header-component :title="'Toast'"></header-component>
     <div class="alert" @click="showAlert">Toast - 1</div>
     <div class="alert" @click="showMsg">Toast - 2</div>
+    <div class="alert" @click="showToast">Toast - 3</div>
   </div>
 </template>
 
 <script>
-import Alert from '../../components/Alert/index.js'
+import Alert from '../../components/Alert'
 export default {
-  name: 'tmp',
+  name: 'toast',
   methods: {
     showAlert() {
       /* eslint-disable */
@@ -23,8 +24,8 @@ export default {
       setTimeout(() => this.$message.warning('警告消息'), 2000)
       setTimeout(() => this.$message.success('成功消息'), 3000)
     },
-    getActive() {
-      console.log('getActive')
+    showToast() {
+      this.$toast('这是一条测试信息', 1500)
     }
   }
 }

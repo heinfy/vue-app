@@ -12,6 +12,8 @@ import Header from './components/Header'
 // alert 组件
 import Alert from './components/Alert/index.vue'
 import vMessage from './components/Message/index'
+// xbj toast组件
+import Toast from './components/Toast'
 import './mock'
 import 'mint-ui/lib/style.css'
 Vue.component(Loadmore.name, Loadmore)
@@ -19,6 +21,7 @@ Vue.component(Spinner.name, Spinner)
 Vue.component(Picker.name, Picker)
 Vue.component(Popup.name, Popup)
 Vue.use(InfiniteScroll)
+Vue.use(Toast)
 Vue.use(Header)
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
