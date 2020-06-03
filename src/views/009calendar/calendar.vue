@@ -111,10 +111,6 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
-  .cal-ctn {
-  width: 375px;
-  height: 623px;
-  overflow-y: scroll;
-  }
+  margin-top: 44px;
 }
 </style>

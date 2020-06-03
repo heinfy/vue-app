@@ -9,7 +9,7 @@ html,
 body,
 #app {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -17,8 +17,5 @@ body,
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #1f2845;
-}
-body {
-  background: #fff;
 }
 </style>

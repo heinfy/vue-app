@@ -1,5 +1,5 @@
 <template>
-  <div class="home ignore-">
+  <div class="main-container ignore-">
     <header-component :title="'html2canvas'"></header-component>
     <div ref="imageWrapper" id="img" class="draw">
       <h1>测试文本</h1>
@@ -38,7 +38,7 @@ export default {
 
 <style lang="less">
   .ignore- {
-    margin: 0 auto;
+    margin: 44px auto 0;
     .draw {
       margin: 0 auto;
       border: 5px solid red;

@@ -36,10 +36,13 @@
         <router-link :to="{ name: 'alloyfinger' }">11 - alloyfinger</router-link>
       </li>
       <li @click="routeModule(12)" :class="[index === 12 ? 'active' : '']">
-        <router-link :to="{ name: 'toast' }">12 - toast</router-link>
+        <router-link :to="{ name: 'myToast' }">12 - myToast</router-link>
       </li>
       <li @click="routeModule(13)" :class="[index === 13 ? 'active' : '']">
         <router-link :to="{ name: 'html2canvas' }">13 - html2canvas绘图</router-link>
+      </li>
+      <li @click="routeModule(14)" :class="[index === 14 ? 'active' : '']">
+        <router-link :to="{ name: 'prismjs' }">14 - prismjs-code动画</router-link>
       </li>
       <li @click="routeModule(100)" :class="[index === 100 ? 'active' : '']">
         <router-link :to="{ name: 'tmp' }">100 - tmp 模板</router-link>
@@ -79,17 +82,10 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-  height: 100%;
+  margin-top: 44px;
   transition: all 0.3s ease;
-  position: relative;
   overflow-y: scroll;
   .main-list {
-    position: absolute;
-    top: 44px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #a5c5b5;
     color: #1f2845; // 目录颜色
     li {
       height: 30px;

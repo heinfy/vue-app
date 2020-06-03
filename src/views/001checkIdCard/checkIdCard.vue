@@ -76,10 +76,8 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
+  margin-top: 44px;
   .check-id {
-    width: 375px;
-    height: 623px;
-    overflow-y: scroll;
     .input-id {
       margin: 18px auto 0;
       padding-left: 6px;

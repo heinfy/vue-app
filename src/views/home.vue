@@ -1,11 +1,9 @@
 <template>
-  <div class="main-wrap">
-    <transition :name="transitionName">
-      <keep-alive include="mainList">
-        <router-view class="child-view"></router-view>
-      </keep-alive>
-    </transition>
-  </div>
+  <transition :name="transitionName">
+    <keep-alive include="mainList">
+      <router-view class="child-view"></router-view>
+    </keep-alive>
+  </transition>
 </template>
 
 <script>
@@ -36,10 +34,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main-wrap {
-  width: 100%;
-  height: 100%;
-}
 .rightin-enter,
 .leftin-leave-active {
   opacity: 0;

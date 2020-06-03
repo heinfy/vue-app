@@ -122,6 +122,10 @@ export default {
 </script>
 
 <style scoped>
+.main-container {
+  margin-top: 44px;
+}
+
 /* 消息列表 */
 .sub-mag {
   width: 375px;

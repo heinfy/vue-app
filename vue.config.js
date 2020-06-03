@@ -7,13 +7,14 @@ module.exports = {
       errors: true
     },
     proxy: {
-      "/": {
-        target: "http://qa02-activity.xuebadev.com",
+      "/api": {
+        target: "1.1.1.1",
         changeOrigin: true,
+        ws: true,
         pathRewrite: {
-          ["^/"]: ""
+          "^/api/": ""
         }
-      }
+    }
     }
   },
   publicPath: '/vue-mobile-app/',

@@ -38,10 +38,8 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
+  margin-top: 44px;
   .tmp-ctn {
-    width: 375px;
-    height: 623px;
-    overflow-y: scroll;
     button {
       display: block;
       background-color: #f5f5f5;

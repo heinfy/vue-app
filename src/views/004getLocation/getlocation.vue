@@ -40,10 +40,8 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
+  margin-top: 44px;
   .location-ctn {
-    width: 375px;
-    height: 623px;
-    overflow-y: scroll;
     .btn {
       display: block;
       background-color: #f5f5f5;

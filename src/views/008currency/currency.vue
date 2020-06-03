@@ -101,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+.main-container {
+  margin-top: 44px;
+}
 .main-container .check {
   width: 300px;
   margin: 44px auto 0;

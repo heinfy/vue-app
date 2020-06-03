@@ -10,7 +10,7 @@
 <script>
 import Alert from '../../components/Alert'
 export default {
-  name: 'toast',
+  name: 'myToast',
   methods: {
     showAlert() {
       /* eslint-disable */
@@ -33,6 +33,7 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
+  margin-top: 44px;
   .alert {
       display: block;
       background-color: #f5f5f5;

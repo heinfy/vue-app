@@ -53,10 +53,8 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
+  margin-top: 44px;
   .load-ctn {
-    width: 375px;
-    height: 623px;
-    overflow-y: scroll;
     h4 {
       color: #ec5656;
       font-size: 16px;

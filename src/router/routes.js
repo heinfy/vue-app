@@ -97,11 +97,11 @@ const routes = [
   },
   {
     index: 12,
-    path: '/toast',
-    name: 'toast',
-    filePath: '012toast',
-    fileName: 'toast',
-    intro: 'Toast 提示组件'
+    path: '/my_toast',
+    name: 'myToast',
+    filePath: '012myToast',
+    fileName: 'myToast',
+    intro: 'myToast 提示组件'
   },
   {
     index: 13,
@@ -110,6 +110,14 @@ const routes = [
     filePath: '013html2canvas',
     fileName: 'html2canvas',
     intro: 'canvas绘制页面'
+  },
+  {
+    index: 14,
+    path: '/prismjs',
+    name: 'prismjs',
+    filePath: '014prismjs',
+    fileName: 'prismjs',
+    intro: 'prismjs-code动画'
   },
   {
     index: 100,

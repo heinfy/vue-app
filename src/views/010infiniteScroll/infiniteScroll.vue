@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style scoped>
+.main-container {
+  margin-top: 44px;
+}
 .infinite-scroll {
   width: 375px;
   height: 623px;
