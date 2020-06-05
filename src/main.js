@@ -7,11 +7,13 @@ import store from './store/index.js'
 import AlloyFinger from 'alloyfinger'
 import AlloyFingerPlugin from 'alloyfinger/vue/alloy_finger_vue.js'
 
+// 移动端Vue.js图片预览插件
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+
 // ajax
 import axios from 'axios'
 
-// swiper 插件
-import VueAwasomeSwiper from "vue-awesome-swiper"
 
 import { Loadmore, InfiniteScroll, Spinner, Picker, Popup } from 'mint-ui'
 
@@ -28,7 +30,6 @@ import Toast from './components/Toast'
 import './mock'
 
 import 'mint-ui/lib/style.css'
-import 'swiper/css/swiper.css'
 
 Vue.component(Loadmore.name, Loadmore)
 Vue.component(Spinner.name, Spinner)
@@ -38,13 +39,23 @@ Vue.component(Popup.name, Popup)
 Vue.use(InfiniteScroll)
 Vue.use(Toast)
 Vue.use(Header)
-Vue.use(VueAwasomeSwiper)
-
-Vue.extend(Alert)
 Vue.use(vMessage)
+Vue.extend(Alert)
 
 Vue.use(AlloyFingerPlugin,{
   AlloyFinger
+})
+
+Vue.use(preview, { // 配置项
+  fullscreenEl: false, // 控制是否显示右上角全屏按钮
+  closeEl: false, // 控制是否显示右上角关闭按钮
+  tapToClose: true, // 点击滑动区域应关闭图库
+  shareEl: false, // 控制是否显示分享按钮
+  zoomEl: false, // 控制是否显示放大缩小按钮
+  counterEl: false, // 控制是否显示左上角图片数量按钮
+  arrowEl: true, // 控制如图的左右箭头（pc浏览器模拟手机时）
+  tapToToggleControls: true, // 点击应切换控件的可见性
+  clickToCloseNonZoomable: true // 点击图片应关闭图库，仅当图像小于视口的大小时
 })
 
 Vue.prototype.$http = axios

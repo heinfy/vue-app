@@ -121,11 +121,19 @@ const routes = [
   },
   {
     index: 15,
-    path: '/swiperlist',
+    path: '/swiper_list',
     name: 'swiperList',
     filePath: '015swiperList',
     fileName: 'swiperList',
     intro: 'swiperList组件'
+  },
+  {
+    index: 16,
+    path: '/preview_img',
+    name: 'previewImg',
+    filePath: '016previewImg',
+    fileName: 'previewImg',
+    intro: 'previewImg组件'
   },
   {
     index: 100,

@@ -6,7 +6,11 @@
     <div class="swiper-pagination" slot="pagination"></div>
   </swiper>
 </template>
+
 <script>
+// swiper 插件
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
 
 export default {
   name: 'SwiperComponent',
@@ -70,6 +74,10 @@ export default {
         observeParents: true //修改swiper的父元素时，自动初始化swiper
       }
     }
+  },
+  components: {
+    Swiper,
+    SwiperSlide
   }
 }
 </script>
