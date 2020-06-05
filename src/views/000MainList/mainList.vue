@@ -2,50 +2,8 @@
   <div class="main-content">
     <header-component :title="'模块功能列表'" :border="true" :instruction="'times'"></header-component>
     <ul class="main-list">
-      <li @click="routeModule(1)" :class="[index === 1 ? 'active' : '']">
-        <router-link :to="{ name: 'checkidcard' }">1 - 身份证检验功能</router-link>
-      </li>
-      <li @click="routeModule(2)" :class="[index === 2 ? 'active' : '']">
-        <router-link :to="{ name: 'checkphoneno' }">2 - 手机号校验</router-link>
-      </li>
-      <li @click="routeModule(3)" :class="[index === 3 ? 'active' : '']">
-        <router-link :to="{ name: 'mockdata' }">3 - Mock模拟ajax</router-link>
-      </li>
-      <li @click="routeModule(4)" :class="[index === 4 ? 'active' : '']">
-        <router-link :to="{ name: 'getlocation' }">4 - 腾讯地图获取定位</router-link>
-      </li>
-      <li @click="routeModule(5)" :class="[index === 5 ? 'active' : '']">
-        <router-link :to="{ name: 'loading' }">5 - loading动画 和 软键盘搜索</router-link>
-      </li>
-      <li @click="routeModule(6)" :class="[index === 6 ? 'active' : '']">
-        <router-link :to="{ name: 'calendar2' }">6 - calendar2组件</router-link>
-      </li>
-      <li @click="routeModule(7)" :class="[index === 7 ? 'active' : '']">
-        <router-link :to="{ name: 'swiper' }">7 - swiper组件</router-link>
-      </li>
-      <li @click="routeModule(8)" :class="[index === 8 ? 'active' : '']">
-        <router-link :to="{ name: 'currency' }">8 - 金额格式化和日期选择组件</router-link>
-      </li>
-      <li @click="routeModule(9)" :class="[index === 9 ? 'active' : '']">
-        <router-link :to="{ name: 'calendar1' }">9 - calendar1组件</router-link>
-      </li>
-      <li @click="routeModule(10)" :class="[index === 10 ? 'active' : '']">
-        <router-link :to="{ name: 'infinitescroll' }">10 - InfiniteScroll</router-link>
-      </li>
-      <li @click="routeModule(11)" :class="[index === 11 ? 'active' : '']">
-        <router-link :to="{ name: 'alloyfinger' }">11 - alloyfinger</router-link>
-      </li>
-      <li @click="routeModule(12)" :class="[index === 12 ? 'active' : '']">
-        <router-link :to="{ name: 'myToast' }">12 - myToast</router-link>
-      </li>
-      <li @click="routeModule(13)" :class="[index === 13 ? 'active' : '']">
-        <router-link :to="{ name: 'html2canvas' }">13 - html2canvas绘图</router-link>
-      </li>
-      <li @click="routeModule(14)" :class="[index === 14 ? 'active' : '']">
-        <router-link :to="{ name: 'prismjs' }">14 - prismjs-code动画</router-link>
-      </li>
-      <li @click="routeModule(100)" :class="[index === 100 ? 'active' : '']">
-        <router-link :to="{ name: 'tmp' }">100 - tmp 模板</router-link>
+      <li @click="routeModule(item.index)" v-for="item in list" :key="item.index" :class="[index === item.index ? 'active' : '']">
+        <router-link :to="{ name: item.name }">{{ item.index }} - {{ item.intro }}</router-link>
       </li>
     </ul>
   </div>
@@ -53,10 +11,12 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import { routes } from '@/router/routes'
 export default {
   name: 'mainList',
   data() {
     return {
+      list: routes,
       index: -1
     }
   },
@@ -74,6 +34,7 @@ export default {
   methods: {
     ...mapMutations(['changeHeaderControl']),
     routeModule(index) {
+      if(index === 0) return
       this.index = index
     }
   }

@@ -9,19 +9,6 @@
 
 **学习笔记（持续更新ing，欢迎 ⭐️ ）：**
 
-0. 身份证检验
-1. 手机号校验
-2. Mock模拟ajax
-3. 腾讯地图获取定位
-4. loading加载动画 和 移动端软键盘搜索
-5. calendar组件2
-6. swiper组件
-7. 金额格式化 和 日期格式化
-8. calendar组件1
-9. [InfiniteScroll](http://mint-ui.github.io/docs/#/en2/infinite-scroll)
-10. Toast提示
-11. html2canva绘制页面
-
 ## 适配方法
 
 [适配方案-doc文件夹](readme/01.移动端适配方案.md)

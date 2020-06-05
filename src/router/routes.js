@@ -13,7 +13,7 @@ const routes = [
     name: 'checkidcard',
     filePath: '001checkIdCard',
     fileName: 'checkIdCard',
-    intro: '校验身份证'
+    intro: '身份证检验功能'
   },
   {
     index: 2,
@@ -21,7 +21,7 @@ const routes = [
     name: 'checkphoneno',
     filePath: '002checkPhoneNo',
     fileName: 'checkPhoneNo',
-    intro: '校验手机号'
+    intro: '手机号校验'
   },
   {
     index: 3,
@@ -29,7 +29,7 @@ const routes = [
     name: 'mockdata',
     filePath: '003mockjs',
     fileName: 'mockData',
-    intro: 'mock模拟ajax'
+    intro: 'Mock模拟ajax'
   },
   {
     index: 4,
@@ -45,7 +45,7 @@ const routes = [
     name: 'loading',
     filePath: '005loading',
     fileName: 'loading',
-    intro: '加载动画效果'
+    intro: 'loading动画和软键盘搜索'
   },
   {
     index: 6,
@@ -53,7 +53,7 @@ const routes = [
     name: 'calendar2',
     filePath: '006calendar2',
     fileName: 'calendar2',
-    intro: '日历组件'
+    intro: 'calendar2组件'
   },
   {
     index: 7,
@@ -61,7 +61,7 @@ const routes = [
     name: 'swiper',
     filePath: '007swiper',
     fileName: 'swiper',
-    intro: '滑动组件'
+    intro: '自定义swiper组件'
   },
   {
     index: 8,
@@ -69,7 +69,7 @@ const routes = [
     name: 'currency',
     filePath: '008currency',
     fileName: 'currency',
-    intro: '货币格式化'
+    intro: '金额格式化和日期选择组件'
   },
   {
     index: 9,
@@ -77,7 +77,7 @@ const routes = [
     name: 'calendar1',
     filePath: '009calendar',
     fileName: 'calendar',
-    intro: '日历组件'
+    intro: 'calendar1组件'
   },
   {
     index: 10,
@@ -109,7 +109,7 @@ const routes = [
     name: 'html2canvas',
     filePath: '013html2canvas',
     fileName: 'html2canvas',
-    intro: 'canvas绘制页面'
+    intro: 'html2canvas绘图'
   },
   {
     index: 14,
@@ -118,6 +118,14 @@ const routes = [
     filePath: '014prismjs',
     fileName: 'prismjs',
     intro: 'prismjs-code动画'
+  },
+  {
+    index: 15,
+    path: '/swiperlist',
+    name: 'swiperList',
+    filePath: '015swiperList',
+    fileName: 'swiperList',
+    intro: 'swiperList组件'
   },
   {
     index: 100,

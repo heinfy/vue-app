@@ -1,16 +1,16 @@
 <template>
   <div class="main-container">
     <header-component :title="'预设模板'"></header-component>
-    <div class="tmp-ctn">
+    <div class="content">
       <button>预设模板，新增模块时可直接复制</button>
     </div>
   </div>
 </template>
 
 <script>
-import { countdown } from '../../utils/util'
+
 export default {
-  name: 'tmp',
+  name: 'content',
   mounted() {}
 }
 </script>
@@ -18,7 +18,7 @@ export default {
 <style lang="less" scoped>
 .main-container {
   margin-top: 44px;
-  .tmp-ctn {
+  .content {
     button {
       display: block;
       background-color: #f5f5f5;
