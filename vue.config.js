@@ -1,5 +1,5 @@
 module.exports = {
-  lintOnSave: false, // process.env.NODE_ENV !== 'production'
+  lintOnSave: false, // 未开启ESlint，process.env.NODE_ENV !== 'production'
   devServer: {
     port: 3000,
     overlay: {
@@ -17,7 +17,7 @@ module.exports = {
     }
     }
   },
-  // publicPath: '/vue-h5/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue-app/': '/',
   configureWebpack: {
     performance: {
       hints:'warning',

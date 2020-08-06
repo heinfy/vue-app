@@ -1,5 +1,5 @@
 {
-  "name": "vue-h5",
+  "name": "vue-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
-  "homepage": "https://houfee.github.io/vue-h5",
+  "homepage": "https://houfee.github.io/vue-app",
   "dependencies": {
     "alloyfinger": "^0.1.16",
     "axios": "^0.19.2",

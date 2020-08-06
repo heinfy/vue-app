@@ -19,7 +19,6 @@ Vue.use(header)
 <header-component
   :title="title"
   :border="border"
-  :description="description"
   :instruction="instruction"
   @method="getActive"
 >
@@ -31,7 +30,6 @@ export default {
     return {
       title: '主页', // String header的标题 非必填
       border: true, // Boolean header的底边框 非必填
-      description: '', // String header的描述信息 非必填
       instruction: '', // String header的功能显示 非必填
     }
   },

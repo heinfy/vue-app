@@ -2,12 +2,12 @@
   <div class="main-container">
     <header-component :title="'无限滚动'"></header-component>
     <div class="infinite-scroll">
-      <ul v-infinite-scroll="loadBottom" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
+      <ul v-infinite-scroll="loadBottom" infinite-scroll-disabled="busy" infinite-scroll-distance="100">
         <li v-for="(item, index) in list" :key="index">
           {{ item }}
         </li>
       </ul>
-      <div v-if="busy" style="text-align:center;" class="data-none">没有更多数据了</div>
+      <div v-if="busy" class="data-none">没有更多数据了</div>
     </div>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
   methods: {
     loadBottom() {
       let _this = this
-      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 2, 3, 4, 0, 2, 3, 4]
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 2, 3, 4, 0, 2, 3, 4, 7, 8, 9, 0, 2, 3, 4, 0, 2,]
       if(_this.pagenum === 1) {
         console.log(_this.pagenum)
         _this.list = arr
@@ -46,11 +46,11 @@ export default {
 
 <style scoped>
 .main-container {
-  margin-top: 44px;
+  padding-top: 44px;
 }
 .infinite-scroll {
-  width: 375px;
-  height: 623px;
+  width: 100%;
+  height: 100vh;
   overflow: scroll;
   overflow-y: scroll;
 }

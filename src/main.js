@@ -14,7 +14,6 @@ import 'vue-photo-preview/dist/skin.css'
 // ajax
 import axios from 'axios'
 
-
 import { Loadmore, InfiniteScroll, Spinner, Picker, Popup } from 'mint-ui'
 
 import Header from './components/Header'
@@ -60,9 +59,6 @@ Vue.use(preview, { // 配置项
 
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
-
-import Vconsole from 'vconsole'
-if(process.env.NODE_ENV === 'production') new Vconsole()
 
 new Vue({
   render: h => h(App),

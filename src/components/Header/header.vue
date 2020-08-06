@@ -3,10 +3,7 @@
     <div class="header-sides header-left" @click="back">
       <span class="iconfont icon-angle-left"></span>
     </div>
-    <div class="header-sides-ctn header-left-ctn" v-show="!!description">
-      {{ description || '' }}
-    </div>
-    <div class="header-title">{{ title }}</div>
+    <span class="header-title">{{ title }}</span>
     <div class="header-sides header-right" v-show="!!instruction" @click="transfromMethod">
       <span :class="['iconfont', instructClassName]"></span>
     </div>
@@ -18,7 +15,6 @@ export default {
   props: {
     title: String,
     border: Boolean,
-    description: String,
     instruction: String
   },
   data() {
@@ -117,38 +113,21 @@ export default {
   background: #fff;
   width: 375px;
   height: 44px;
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  grid-template-rows: 44px;
   font-size: 18px;
+  text-align: center;
   .header-sides {
     line-height: 44px;
-    span {
-      font-size: 20px;
-    }
+    font-size: 20px;
   }
   .header-left {
-    grid-column-start: 1;
-    grid-column-end: 4;
+    float: left;
     padding-left: 18px;
   }
   .header-right {
-    text-align: right;
-    grid-column-start: 19;
-    grid-column-end: 25;
+    float: right;
     padding-right: 18px;
   }
-  .header-sides-ctn {
-    height: 44px;
-    line-height: 44px;
-  }
-  .header-left-ctn {
-    grid-column-start: 4;
-    grid-column-end: 7;
-  }
   .header-title {
-    grid-column-start: 7;
-    grid-column-end: 19;
     color: #1f2845;
     line-height: 44px;
     font-weight: bold;
