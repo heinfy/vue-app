@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 /* eslint-disable no-unused-vars */
 console.log(process.env.NODE_ENV)
 const RouterConfig = {
-  // mode: process.env.NODE_ENV === 'production' ? 'hash' : 'history',
+  mode: 'history', // process.env.NODE_ENV === 'production' ? 'hash' : 'history',
   routes: routers,
   scrollBehavior(to, from, savedPosition) {
     // return 期望滚动到哪个的位置

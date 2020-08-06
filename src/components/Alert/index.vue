@@ -8,8 +8,8 @@
 export default {
   data() {
     return {
-      message: '', //需要提示用户的内容
-      visible: true //线上与隐藏
+      message: '', // 需要提示用户的内容
+      visible: true // 线上与隐藏
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 {
-  "name": "vue-mobile-app",
+  "name": "vue-h5",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
-  "homepage": "https://houfee.github.io/vue-mobile-app",
+  "homepage": "https://houfee.github.io/vue-h5",
   "dependencies": {
     "alloyfinger": "^0.1.16",
     "axios": "^0.19.2",

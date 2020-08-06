@@ -17,7 +17,7 @@ module.exports = {
     }
     }
   },
-  publicPath: '/vue-mobile-app/',
+  // publicPath: '/vue-h5/',
   configureWebpack: {
     performance: {
       hints:'warning',
