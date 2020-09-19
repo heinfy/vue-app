@@ -29,7 +29,6 @@ routes.forEach((route) => {
 export const routers = [
   {
     path: '/',
-    name: 'home',
     /* eslint-disable */
     component: () => import(`../views/home.vue`),
     /* eslint-enable */
