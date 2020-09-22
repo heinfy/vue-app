@@ -1,15 +1,16 @@
 <template>
   <div class="pdf-preview-container">
+    <span class="page_num">{{showPageNum}}/{{docPages}}</span>
     <div
       class="page-container"
       ref="container"
-      v-for="page in docPages"
+      v-for="(page, index) in docPages"
       :style="{
         height: `${pageHeight}px`
       }"
-      :key="page"
-    >
-      <canvas v-if="renderList.includes(page)"></canvas>
+      :key="page" :data-index="index">
+      <canvas v-if="renderList.includes(page)">
+      </canvas>
     </div>
   </div>
 </template>
@@ -36,64 +37,65 @@ export default {
       default: 0
     }
   },
-  data() {
+  data () {
     return {
       doc: null,
       docPages: 0,
+      showPageNum: 0,
       currentPage: 0,
       pageHeight: 0,
-      renderList: []
+      renderList: [],
+      timer: 0
     }
   },
   watch: {
     url: {
       immediate: true,
-      handler() {
+      handler () {
         this.getPDFFile()
       }
     }
   },
-  created() {
+  created () {
     if (!this.customScroll) {
       document.addEventListener('scroll', this.scroll)
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     document.removeEventListener('scroll', this.scroll)
   },
   methods: {
-    getPDFFile() {
+    getPDFFile () {
       if (!this.url) return
       this.currentPage = 0
+      // getDocument 加载要打开的PDF文件
       pdfJS.getDocument(this.url).then(pdf => {
         this.doc = pdf
         this.docPages = pdf.numPages
+        this.showPageNum = 1
         this.$nextTick(() => {
+          // 渲染第一屏
           this.docPages && this.scrollToPage(1)
         })
       })
     },
-    scrollToPage(pageNo) {
+    scrollToPage (pageNo) {
       if (this.currentPage === pageNo) return
+      // 赋值给当前页
       this.currentPage = pageNo
       let list = []
-      for (
-        let page = pageNo - this.renderPages;
-        page <= pageNo + this.renderPages;
-        page++
-      ) {
+      for (let page = pageNo; page <= pageNo + this.renderPages; page++) {
         list.push(page)
       }
-      list = list.filter(page => page <= this.docPages && page >= 1)
+      this.renderList = list.filter(page => page <= this.docPages)
       this.$nextTick(() => {
-        this.renderList = list
         this.renderList.forEach(page => {
           this.renderPage(page)
         })
       })
     },
     // 渲染page
-    renderPage(pageNo) {
+    renderPage (pageNo) {
       this.doc.getPage(pageNo).then(page => {
         let container = this.$refs.container[pageNo - 1]
         if (!container) return
@@ -101,18 +103,12 @@ export default {
         if (!canvas || canvas.__rendered) return
         let ctx = canvas.getContext('2d')
         let dpr = window.devicePixelRatio || 1
-        let bsr =
-          ctx.webkitBackingStorePixelRatio ||
-          ctx.mozBackingStorePixelRatio ||
-          ctx.msBackingStorePixelRatio ||
-          ctx.oBackingStorePixelRatio ||
-          ctx.backingStorePixelRatio ||
-          1
+        let bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
         let ratio = dpr / bsr
         let rect = container.getBoundingClientRect()
         let viewport = page.getViewport(1)
         let width = rect.width
-        let height = (width / viewport.width) * viewport.height
+        let height = width / viewport.width * viewport.height
         canvas.style.width = `${width}px`
         canvas.style.height = `${height}px`
         this.pageHeight = height
@@ -121,20 +117,28 @@ export default {
         ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
         page.render({
           canvasContext: ctx,
-          viewport: page.getViewport(width / viewport.width)
+          viewport: page.getViewport(width/viewport.width)
         })
         canvas.__rendered = true
       })
     },
-    scroll() {
+    // 计算当前页数
+    scroll () {
+      const scrollHeight = document.body.scrollHeight // 页面高度
+      const screenHeight = window.screen.height // 屏幕高度
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if(scrollTop + screenHeight < scrollHeight ) {
+        this.showPageNum = scrollTop <= 0? 1: this.docPages - Math.floor((scrollHeight - scrollTop)/this.pageHeight)
+      }else {
+        this.showPageNum = this.docPages
+      }
       this.checkRender(document.documentElement)
     },
-    checkRender(el) {
+    checkRender (el) {
       if (!this.pageHeight) return
       let scrollTop = el.scrollTop
       if (el === document.documentElement) {
-        scrollTop =
-          el.scrollTop || window.pageYOffset || document.body.scrollTop
+        scrollTop = el.scrollTop || window.pageYOffset || document.body.scrollTop
       }
       let page = Math.floor((scrollTop - this.offsetHeight) / this.pageHeight)
       page = Math.max(page, 1)
@@ -144,3 +148,12 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.page_num {
+  position: fixed;
+  left: 20px;
+  top: 60px;
+  z-index: 99;
+}
+</style>
