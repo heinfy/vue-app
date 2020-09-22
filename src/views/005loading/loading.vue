@@ -7,18 +7,18 @@
       <h4>loading 动画</h4>
       <button @click="show">模拟ajax请求</button>
       <!-- 接口加载动画 -->
-      <loading v-show="loadAnimation" :propShow="loadAnimation"></loading>
+      <loading v-show="loadAnimation" class="loading" :size="40"></loading>
     </div>
   </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import Load from '@/components/loadingAn.vue'
+import Loading from '@/components/Loading/'
 export default {
   name: 'load',
   components: {
-    loading: Load
+    Loading
   },
   data() {
     return {
@@ -78,6 +78,13 @@ export default {
       margin: 20px auto 0;
       border: 1px solid #a5c5b5;
       border-radius: 2px;
+    }
+    .loading {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 4rem;
+      z-index: 100;
     }
   }
 }
