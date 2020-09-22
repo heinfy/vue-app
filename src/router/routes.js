@@ -136,6 +136,14 @@ const routes = [
     intro: 'previewImg组件'
   },
   {
+    index: 17,
+    path: '/pdf_preview',
+    name: 'pdf_preview',
+    filePath: '017pdfpreview',
+    fileName: 'pdfpreview',
+    intro: 'PDF预览'
+  },
+  {
     index: 100,
     path: '/tmp',
     name: 'tmp',

@@ -2,7 +2,7 @@
   <div class="main-content">
     <header-component :title="'模块功能列表'" :border="true" :instruction="'times'"></header-component>
     <ul class="main-list">
-      <li @click="routeModule(item.index)" v-for="item in list" :key="item.index" :class="[index === item.index ? 'active' : '']">
+      <li @click="routeModule(item.index)" v-for="item in list" :key="item.index" :class="[index === item.index ? 'active' : '']" v-if="item.index !== 0">
         <router-link :to="{ name: item.name }">{{ item.index }} - {{ item.intro }}</router-link>
       </li>
     </ul>
