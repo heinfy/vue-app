@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import pdfJS from 'pdfjs-dist'
+import pdfJS from 'pdfjs-dist/webpack'
 
 export default {
   props: {
@@ -69,7 +69,15 @@ export default {
       if (!this.url) return
       this.currentPage = 0
       // getDocument 加载要打开的PDF文件
-      pdfJS.getDocument(this.url).then(pdf => {
+      pdfJS.getDocument({
+        url: this.url,
+        cMapUrl: 'https://unpkg.com/pdfjs-dist@2.3.200/cmaps/', // 这里同样要引入字体解决水印问题，需自己提供
+        cMapPacked: true,
+        httpHeaders: {
+            //headers
+        },
+        verbosity: 0,
+      }).promise.then(pdf => {
         this.doc = pdf
         this.docPages = pdf.numPages
         this.showPageNum = 1
@@ -106,7 +114,7 @@ export default {
         let bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
         let ratio = dpr / bsr
         let rect = container.getBoundingClientRect()
-        let viewport = page.getViewport(1)
+        let viewport = page.getViewport({scale:1.0})
         let width = rect.width
         let height = width / viewport.width * viewport.height
         canvas.style.width = `${width}px`
@@ -117,7 +125,7 @@ export default {
         ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
         page.render({
           canvasContext: ctx,
-          viewport: page.getViewport(width/viewport.width)
+          viewport: page.getViewport({scale: width/viewport.width})
         })
         canvas.__rendered = true
       })
