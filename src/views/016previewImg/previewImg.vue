@@ -53,7 +53,7 @@ export default {
         on: {
           slideChange: function(e) {
             console.log(this.realIndex, 'realIndex', e)
-            // that.imgIndex = this.realIndex + 1;  //获取轮播图片下标索引；这里有一个坑，之前网上找到的是用activeIndex，但后来网上说的是这个realIndex，原来 activeIndex 是swiper2.0的；而realIndex是swiper3.0的，（使用realIndex才实现了下标索引）
+            // that.imgIndex = this.realIndex + 1; //获取轮播图片下标索引；这里有一个坑，之前网上找到的是用activeIndex，但后来网上说的是这个realIndex，原来 activeIndex 是swiper2.0的；而realIndex是swiper3.0的，（使用realIndex才实现了下标索引）
           }
         },
         pagination: {

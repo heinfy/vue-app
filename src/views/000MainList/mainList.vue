@@ -2,9 +2,7 @@
   <div class="main-content">
     <header-component :title="'模块功能列表'" :border="true" :instruction="'times'"></header-component>
     <ul class="main-list">
-      <li @click="routeModule(item.index)" v-for="item in list" :key="item.index" :class="[index === item.index ? 'active' : '']" v-if="item.index !== 0">
-        <router-link :to="{ name: item.name }">{{ item.index }} - {{ item.intro }}</router-link>
-      </li>
+      <router-link v-for="item in list" :key="item.index" tag="li" :to="{ name: item.name }">{{ item.index }} - {{ item.intro }}</router-link>
     </ul>
   </div>
 </template>
@@ -16,8 +14,7 @@ export default {
   name: 'mainList',
   data() {
     return {
-      list: routes,
-      index: -1
+      list: routes
     }
   },
   beforeRouteEnter(to, from, next) {
@@ -32,11 +29,7 @@ export default {
     })
   },
   methods: {
-    ...mapMutations(['changeHeaderControl']),
-    routeModule(index) {
-      if (index === 0) return
-      this.index = index
-    }
+    ...mapMutations(['changeHeaderControl'])
   }
 }
 </script>

@@ -6,7 +6,7 @@
     "dev": "npm run serve",
     "serve": "vue-cli-service serve",
     "build:stage": "vue-cli-service build --mode staging",
-    "build:pre": "vue-cli-service build",
+    "build:gray": "vue-cli-service gray",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",

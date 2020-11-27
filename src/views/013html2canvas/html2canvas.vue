@@ -28,7 +28,7 @@ export default {
     },
     async createPoster(node) {
       const canvas = await html2canvas(node, { useCORS: true })
-      const base64 = canvas.toDataURL('image/png') // base64图片
+      // const base64 = canvas.toDataURL('image/png') // base64图片
       console.log(canvas)
       this.$refs.poster.appendChild(canvas)
     }
