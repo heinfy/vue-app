@@ -19,21 +19,21 @@ export default {
   data() {
     return {
       imgUrl: '',
-      poster: "http://wenba-ooo-qiniu.xueba100.com/e22e21c693e90bff30efc4bf6c8381e3.png"
+      poster: 'http://wenba-ooo-qiniu.xueba100.com/e22e21c693e90bff30efc4bf6c8381e3.png'
     }
   },
   methods: {
     show() {
       this.createPoster(this.$refs.imageWrapper)
     },
-    async createPoster( node ) {
-      let canvas = await html2canvas( node , { useCORS: true })
-      let base64 = canvas.toDataURL('image/png') // base64图片
+    async createPoster(node) {
+      const canvas = await html2canvas(node, { useCORS: true })
+      const base64 = canvas.toDataURL('image/png') // base64图片
       console.log(canvas)
       this.$refs.poster.appendChild(canvas)
     }
   }
-};
+}
 </script>
 
 <style lang="less">

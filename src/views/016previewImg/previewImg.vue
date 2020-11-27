@@ -36,10 +36,10 @@ export default {
           delay: 2500,
           disableOnInteraction: false
         },
-        effect: "coverflow", // 3D界面效果
+        effect: 'coverflow', // 3D界面效果
         centeredSlides: false,
-        observer: false, // 修改swiper自己或子元素时，自动初始化swiper 
-        observeParents: false, // 修改swiper的父元素时，自动初始化swiper 
+        observer: false, // 修改swiper自己或子元素时，自动初始化swiper
+        observeParents: false, // 修改swiper的父元素时，自动初始化swiper
         coverflow: {
           rotate: 0, // slide做3d旋转时Y轴的旋转角度。默认50。
           stretch: 0, // 每个slide之间的拉伸值，越大slide靠得越紧。 默认0。
@@ -51,15 +51,15 @@ export default {
         autoplayDisableOnInteraction: true,
         paginationClickable: true, // 此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换
         on: {
-          slideChange: function (e) {
-            console.log(this.realIndex,'realIndex',e)
+          slideChange: function(e) {
+            console.log(this.realIndex, 'realIndex', e)
             // that.imgIndex = this.realIndex + 1;  //获取轮播图片下标索引；这里有一个坑，之前网上找到的是用activeIndex，但后来网上说的是这个realIndex，原来 activeIndex 是swiper2.0的；而realIndex是swiper3.0的，（使用realIndex才实现了下标索引）
           }
         },
         pagination: {
           el: '.swiper-pagination',
           clickable: true
-        },
+        }
       }
     }
   },
@@ -89,7 +89,7 @@ export default {
       })
     },
     close() {
-      this.$preview.on('close', () => { //close只是众多事件名的其中一个，更多请查看文档
+      this.$preview.on('close', () => { // close只是众多事件名的其中一个，更多请查看文档
         console.log('图片查看器被关闭')
       })
     }

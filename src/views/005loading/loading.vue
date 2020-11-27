@@ -40,7 +40,7 @@ export default {
       alert(this.msg)
     },
     show() {
-      let _this = this
+      const _this = this
       _this.loadAnimation = true
       setTimeout(() => {
         alert('模拟结束！')

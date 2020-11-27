@@ -14,9 +14,9 @@ export const randomFrom = (lowerValue, upperValue) => {
  * 取得地址栏参数
  */
 export const getParams = name => {
-  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
+  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   console.log(window.location)
-  let r = window.location.search.substr(1).match(reg)
+  const r = window.location.search.substr(1).match(reg)
   if (r != null) return decodeURIComponent(r[2])
   else return null
 }
@@ -29,14 +29,14 @@ export const getParamsFn = name => {
   if (!name) return null
   // 查询参数：先通过search取值，如果取不到就通过hash来取
   let after = window.location.search
-  after = after.substr(1) + "&" + window.location.hash.split("?")[1]
+  after = after.substr(1) + '&' + window.location.hash.split('?')[1]
   // 地址栏URL没有查询参数，返回空
   if (!after) return null
   // 如果查询参数中没有"name"，返回空
   if (after.indexOf(name) === -1) return null
-  let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
+  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   // 当地址栏参数存在中文时，需要解码，不然会乱码
-  let r = decodeURI(after).match(reg)
+  const r = decodeURI(after).match(reg)
   // 如果url中"name"没有值，返回空
   if (!r) return null
   return r[2]
@@ -46,12 +46,12 @@ export const getParamsFn = name => {
  * 是否为移动终端、ios终端、android终端
  */
 export const versions = () => {
-  let u = navigator.userAgent, os
-  let isAndroid = u.indexOf("Android") > -1 || u.indexOf("Adr") > -1 //android终端
-  let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) //ios终端
-  if (isiOS) os = "ios"
-  else if (isAndroid) os = "android"
-  else os = ""
+  const u = navigator.userAgent; let os
+  const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 // android终端
+  const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
+  if (isiOS) os = 'ios'
+  else if (isAndroid) os = 'android'
+  else os = ''
   return os
 }
 
@@ -64,13 +64,13 @@ export const getDate = (timestramp, format = 'yyyy-MM-dd hh:mm:ss') => {
   const fillZero = num => num.toString().padStart(2, '0')
   const time = new Date(timestramp)
   const pattern = {
-    'y': time.getFullYear(),
-    'M': time.getMonth() + 1,
-    'd': time.getDate(),
-    'h': time.getHours(),
-    'm': time.getMinutes(),
-    's': time.getSeconds(),
-    'i': time.getMilliseconds()
+    y: time.getFullYear(),
+    M: time.getMonth() + 1,
+    d: time.getDate(),
+    h: time.getHours(),
+    m: time.getMinutes(),
+    s: time.getSeconds(),
+    i: time.getMilliseconds()
   }
   for (var k in pattern) {
     const regexp = new RegExp(`(${k}+)`)
@@ -92,9 +92,9 @@ export const getDate = (timestramp, format = 'yyyy-MM-dd hh:mm:ss') => {
  * @param { String } format 返回时间格式
  * @returns { String | Boolean } 返回值
  */
-export const countdown  = (startTime, endTime, format = 'dd日h时mm分s秒i毫秒') => {
-  let flag =  startTime -endTime < 0
-  if(flag) {
+export const countdown = (startTime, endTime, format = 'dd日h时mm分s秒i毫秒') => {
+  const flag = startTime - endTime < 0
+  if (flag) {
     // 获取毫秒数差
     const timeFrame = endTime - startTime
     // 获取天数差
@@ -112,15 +112,15 @@ export const countdown  = (startTime, endTime, format = 'dd日h时mm分s秒i毫�
     // 获取秒差
     const seconds = Math.floor(leaveMinuteTimes / 1000)
     // 获取去除秒数的毫秒数
-    const milliseconds = Math.floor((leaveMinuteTimes - seconds * 1000)/10)
+    const milliseconds = Math.floor((leaveMinuteTimes - seconds * 1000) / 10)
     let pattern = {
-      'm': minutes,
-      's': seconds,
-      'i': milliseconds
+      m: minutes,
+      s: seconds,
+      i: milliseconds
     }
     const fillZero = num => num.toString().padStart(2, '0')
-    if(/d+/ig.test(format)) pattern = { 'd': days, 'h': hours, ...pattern }
-    else pattern = { 'h': days * 24 + hours, ...pattern }
+    if (/d+/ig.test(format)) pattern = { d: days, h: hours, ...pattern }
+    else pattern = { h: days * 24 + hours, ...pattern }
     for (var k in pattern) {
       const regexp = new RegExp(`(${k}+)`)
       const replaceFn = (match) => match.length === 1 ? pattern[k] : fillZero(pattern[k])

@@ -1,12 +1,16 @@
 {
   "name": "vue-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
+    "dev": "npm run serve",
     "serve": "vue-cli-service serve",
+    "build:stage": "vue-cli-service build --mode staging",
+    "build:pre": "vue-cli-service build",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "new": "plop"
   },
   "homepage": "https://houfee.github.io/vue-app",
   "dependencies": {
@@ -53,22 +57,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
-    "vconsole": "^3.3.4",
+    "plop": "^2.7.4",
     "vue-template-compiler": "^2.6.11"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {},
-      "postcss-px-to-viewport": {
-        "viewportWidth": 375,
-        "viewportHeight": 667,
-        "unitPrecision": 3,
-        "viewportUnit": "vw",
-        "mixPixelValue": 1,
-        "selectorBlackList": [
-          ".iphoneXr"
-        ]
-      }
-    }
   }
 }

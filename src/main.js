@@ -41,7 +41,9 @@ Vue.use(Header)
 Vue.use(vMessage)
 Vue.extend(Alert)
 
-Vue.use(AlloyFingerPlugin,{
+console.log(process.env)
+
+Vue.use(AlloyFingerPlugin, {
   AlloyFinger
 })
 

@@ -19,9 +19,9 @@ export default {
   },
   methods: {
     check() {
-      let _this = this
-      let no = _this.phoneNo
-      let result = checkPhoneNo(no)
+      const _this = this
+      const no = _this.phoneNo
+      const result = checkPhoneNo(no)
       alert('检验结果为 ' + result)
     },
     keyUp() {

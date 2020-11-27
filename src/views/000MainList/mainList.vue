@@ -34,7 +34,7 @@ export default {
   methods: {
     ...mapMutations(['changeHeaderControl']),
     routeModule(index) {
-      if(index === 0) return
+      if (index === 0) return
       this.index = index
     }
   }

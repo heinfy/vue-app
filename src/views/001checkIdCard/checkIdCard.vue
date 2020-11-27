@@ -22,9 +22,9 @@ export default {
   },
   methods: {
     check() {
-      let _this = this
-      let id = _this.idCard
-      let result = checkIdCard(id)
+      const _this = this
+      const id = _this.idCard
+      const result = checkIdCard(id)
       alert('检验结果为 ' + result)
     },
     keyUp() {

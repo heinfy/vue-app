@@ -37,7 +37,7 @@ export default {
       default: 0
     }
   },
-  data () {
+  data() {
     return {
       doc: null,
       docPages: 0,
@@ -51,21 +51,21 @@ export default {
   watch: {
     url: {
       immediate: true,
-      handler () {
+      handler() {
         this.getPDFFile()
       }
     }
   },
-  created () {
+  created() {
     if (!this.customScroll) {
       document.addEventListener('scroll', this.scroll)
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     document.removeEventListener('scroll', this.scroll)
   },
   methods: {
-    getPDFFile () {
+    getPDFFile() {
       if (!this.url) return
       this.currentPage = 0
       // getDocument 加载要打开的PDF文件
@@ -74,9 +74,9 @@ export default {
         cMapUrl: 'https://unpkg.com/pdfjs-dist@2.3.200/cmaps/', // 这里同样要引入字体解决水印问题，需自己提供
         cMapPacked: true,
         httpHeaders: {
-            //headers
+            // headers
         },
-        verbosity: 0,
+        verbosity: 0
       }).promise.then(pdf => {
         this.doc = pdf
         this.docPages = pdf.numPages
@@ -87,11 +87,11 @@ export default {
         })
       })
     },
-    scrollToPage (pageNo) {
+    scrollToPage(pageNo) {
       if (this.currentPage === pageNo) return
       // 赋值给当前页
       this.currentPage = pageNo
-      let list = []
+      const list = []
       for (let page = pageNo; page <= pageNo + this.renderPages; page++) {
         list.push(page)
       }
@@ -103,20 +103,20 @@ export default {
       })
     },
     // 渲染page
-    renderPage (pageNo) {
+    renderPage(pageNo) {
       this.doc.getPage(pageNo).then(page => {
-        let container = this.$refs.container[pageNo - 1]
+        const container = this.$refs.container[pageNo - 1]
         if (!container) return
-        let canvas = container.querySelector('canvas')
+        const canvas = container.querySelector('canvas')
         if (!canvas || canvas.__rendered) return
-        let ctx = canvas.getContext('2d')
-        let dpr = window.devicePixelRatio || 1
-        let bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
-        let ratio = dpr / bsr
-        let rect = container.getBoundingClientRect()
-        let viewport = page.getViewport({scale:1.0})
-        let width = rect.width
-        let height = width / viewport.width * viewport.height
+        const ctx = canvas.getContext('2d')
+        const dpr = window.devicePixelRatio || 1
+        const bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
+        const ratio = dpr / bsr
+        const rect = container.getBoundingClientRect()
+        const viewport = page.getViewport({ scale: 1.0 })
+        const width = rect.width
+        const height = width / viewport.width * viewport.height
         canvas.style.width = `${width}px`
         canvas.style.height = `${height}px`
         this.pageHeight = height
@@ -125,24 +125,24 @@ export default {
         ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
         page.render({
           canvasContext: ctx,
-          viewport: page.getViewport({scale: width/viewport.width})
+          viewport: page.getViewport({ scale: width / viewport.width })
         })
         canvas.__rendered = true
       })
     },
     // 计算当前页数
-    scroll () {
+    scroll() {
       const scrollHeight = document.body.scrollHeight // 页面高度
       const screenHeight = window.screen.height // 屏幕高度
-      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      if(scrollTop + screenHeight < scrollHeight ) {
-        this.showPageNum = scrollTop <= 0? 1: this.docPages - Math.floor((scrollHeight - scrollTop)/this.pageHeight)
-      }else {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop + screenHeight < scrollHeight) {
+        this.showPageNum = scrollTop <= 0 ? 1 : this.docPages - Math.floor((scrollHeight - scrollTop) / this.pageHeight)
+      } else {
         this.showPageNum = this.docPages
       }
       this.checkRender(document.documentElement)
     },
-    checkRender (el) {
+    checkRender(el) {
       if (!this.pageHeight) return
       let scrollTop = el.scrollTop
       if (el === document.documentElement) {

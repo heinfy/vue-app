@@ -30,7 +30,7 @@ export default {
     },
     touchMove(e) {
       console.log('touchMove', e)
-    },
+    }
   }
 
 }

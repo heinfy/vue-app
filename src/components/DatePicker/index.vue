@@ -47,7 +47,7 @@ export default {
   directives: {
     clickOutside: {
       bind(el, bindings, vnode) {
-        let handler = e => {
+        const handler = e => {
           if (el.contains(e.target)) {
             if (!vnode.context.isVisible) vnode.context.focus()
           } else {
@@ -63,7 +63,7 @@ export default {
     }
   },
   data() {
-    let { year, month } = utils.getYearMonthDay(this.value)
+    const { year, month } = utils.getYearMonthDay(this.value)
     return {
       weekDays: ['日', '一', '二', '三', '四', '五', '六'],
       time: { year, month },
@@ -78,17 +78,17 @@ export default {
   },
   computed: {
     formatFate() {
-      let { year, month, day } = utils.getYearMonthDay(this.value)
+      const { year, month, day } = utils.getYearMonthDay(this.value)
       return `${year}-${month + 1}-${day}`
     },
     visibleDays() {
       // 获取当前月第一天是周几
-      let { year, month } = utils.getYearMonthDay(utils.getDate(this.time.year, this.time.month, 1))
-      let currentFirstDay = utils.getDate(year, month, 1)
-      let day = currentFirstDay.getDay()
-      let week = day === 0 ? 7 : day
-      let startDay = currentFirstDay - week * 60 * 60 * 1000 * 24
-      let arr = []
+      const { year, month } = utils.getYearMonthDay(utils.getDate(this.time.year, this.time.month, 1))
+      const currentFirstDay = utils.getDate(year, month, 1)
+      const day = currentFirstDay.getDay()
+      const week = day === 0 ? 7 : day
+      const startDay = currentFirstDay - week * 60 * 60 * 1000 * 24
+      const arr = []
       for (let i = 0; i < 42; i++) {
         arr.push(new Date(startDay + i * 60 * 60 * 1000 * 24))
       }
@@ -103,13 +103,13 @@ export default {
       this.isVisible = false
     },
     isCurrentMonth(date) {
-      let { year, month } = utils.getYearMonthDay(utils.getDate(this.time.year, this.time.month, 1))
-      let { year: y, month: m } = utils.getYearMonthDay(date)
+      const { year, month } = utils.getYearMonthDay(utils.getDate(this.time.year, this.time.month, 1))
+      const { year: y, month: m } = utils.getYearMonthDay(date)
       return year === y && month === m
     },
     isToday(date) {
-      let { year, month, day } = utils.getYearMonthDay(new Date())
-      let { year: y, month: m, day: d } = utils.getYearMonthDay(date)
+      const { year, month, day } = utils.getYearMonthDay(new Date())
+      const { year: y, month: m, day: d } = utils.getYearMonthDay(date)
       return year === y && month === m && day === d
     },
     chooseDate(date) {
@@ -118,22 +118,22 @@ export default {
       this.blur()
     },
     isSelect(date) {
-      let { year, month, day } = utils.getYearMonthDay(date)
-      let { year: y, month: m, day: d } = utils.getYearMonthDay(this.value)
+      const { year, month, day } = utils.getYearMonthDay(date)
+      const { year: y, month: m, day: d } = utils.getYearMonthDay(this.value)
       return year === y && month === m && day === d
     },
     changeMonth(change) {
-      let d = utils.getDate(this.time.year, this.time.month, 1)
+      const d = utils.getDate(this.time.year, this.time.month, 1)
       d.setMonth(d.getMonth() + change)
       this.time = utils.getYearMonthDay(d)
     },
     changeYear(change) {
-      let d = utils.getDate(this.time.year, this.time.month, 1)
+      const d = utils.getDate(this.time.year, this.time.month, 1)
       d.setFullYear(d.getFullYear() + change)
       this.time = utils.getYearMonthDay(d)
     },
     setNow() {
-      let now = new Date()
+      const now = new Date()
       this.time = utils.getYearMonthDay(now)
       this.$emit('input', now)
       this.blur()

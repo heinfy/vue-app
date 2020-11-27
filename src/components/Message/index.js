@@ -20,9 +20,9 @@ const MESSAGE = {
           duration = text.duration
         }
       }
-      let VueMessage = Vue.extend({
+      const VueMessage = Vue.extend({
         render(h) {
-          let props = {
+          const props = {
             type,
             text: msg,
             show: this.show
@@ -35,17 +35,17 @@ const MESSAGE = {
           }
         }
       })
-      let newMessage = new VueMessage()
+      const newMessage = new VueMessage()
       let vm = newMessage.$mount()
-      let el = vm.$el
+      const el = vm.$el
       document.body.appendChild(el) // 把生成的提示的dom插入body中
       vm.show = true
-      let t1 = setTimeout(() => {
+      const t1 = setTimeout(() => {
         clearTimeout(t1)
-        vm.show = false //隐藏提示组件，此时会有300ms的动画效果，等动画效果过了再从body中移除dom
-        let t2 = setTimeout(() => {
+        vm.show = false // 隐藏提示组件，此时会有300ms的动画效果，等动画效果过了再从body中移除dom
+        const t2 = setTimeout(() => {
           clearTimeout(t2)
-          document.body.removeChild(el) //从body中移除dom
+          document.body.removeChild(el) // 从body中移除dom
           newMessage.$destroy()
           vm = null // 设置为null，好让js垃圾回收算法回收，释放内存
 

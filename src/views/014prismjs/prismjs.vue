@@ -9,6 +9,9 @@
 </template>
 
 <script>
+import Prism from 'prismjs'
+import 'prismjs/themes/prism-okaidia.css'
+
 const data = `
 // 我给你表演写代码
 // 我要开始写啦
@@ -32,9 +35,6 @@ const data = `
 // 好了我写完了
 `
 
-import Prism from 'prismjs'
-import 'prismjs/themes/prism-okaidia.css'
-
 export default {
   name: 'prismjs',
   data() {
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed: {
-    highlightedCode () {
+    highlightedCode() {
       const code = Prism.highlight(
           this.currentCode,
           Prism.languages.javascript
@@ -68,17 +68,17 @@ export default {
     // 代码输入
     progressivelyTyping() {
       return new Promise((resolve) => {
-        let count = 0, typingCount = 0, typing
+        let count = 0; let typingCount = 0; let typing
         // 写代码每一帧的函数
-        let step = () => {
-          let randomNumber = Math.round(Math.random() * 6)
+        const step = () => {
+          const randomNumber = Math.round(Math.random() * 6)
           // 摸你打字的随机速度
-          if(count % 2 === 0 && randomNumber % 3 === 0){
+          if (count % 2 === 0 && randomNumber % 3 === 0) {
             this.currentCode = this.code.substring(0, typingCount)
             typingCount += 0.5
           }
           // 大约每 24 帧光标闪动一次
-          if(count % 24 === 0){
+          if (count % 24 === 0) {
             this.isCursorVisible = this.isCursorVisible === 0 ? 1 : 0
           }
           count++

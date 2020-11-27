@@ -18,60 +18,60 @@ export default {
     return {
       info: [
         {
-          "mobile": "1423",
-          "name": "卢*宁",
-          "phone": "137****1423",
-          "time": 3,
-          "award": {
-            "title": "6月屯课优惠券-活动使用1",
-            "reduction_num": "2000.00",
-            "reach_num": "240.00"
+          mobile: '1423',
+          name: '卢*宁',
+          phone: '137****1423',
+          time: 3,
+          award: {
+            title: '6月屯课优惠券-活动使用1',
+            reduction_num: '2000.00',
+            reach_num: '240.00'
           }
         },
         {
-          "mobile": "5781",
-          "name": "徐*稀",
-          "phone": "181****5781",
-          "time": 4,
-          "award": {
-            "title": "6月屯课优惠券-活动使用3",
-            "reduction_num": "1000.00",
-            "reach_num": "160.00"
+          mobile: '5781',
+          name: '徐*稀',
+          phone: '181****5781',
+          time: 4,
+          award: {
+            title: '6月屯课优惠券-活动使用3',
+            reduction_num: '1000.00',
+            reach_num: '160.00'
           }
         },
         {
-          "mobile": "6072",
-          "name": "孙*伟",
-          "phone": "159****6072",
-          "time": 6,
-          "award": {
-            "title": "6月屯课优惠券-活动使用4",
-            "reduction_num": "500.00",
-            "reach_num": "120.00"
+          mobile: '6072',
+          name: '孙*伟',
+          phone: '159****6072',
+          time: 6,
+          award: {
+            title: '6月屯课优惠券-活动使用4',
+            reduction_num: '500.00',
+            reach_num: '120.00'
           }
         },
         {
-          "mobile": "2734",
-          "name": "测*",
-          "phone": "170****2734",
-          "time": 9,
-          "award": {
-            "title": "6月屯课优惠券-活动使用4",
-            "reduction_num": "500.00",
-            "reach_num": "120.00"
+          mobile: '2734',
+          name: '测*',
+          phone: '170****2734',
+          time: 9,
+          award: {
+            title: '6月屯课优惠券-活动使用4',
+            reduction_num: '500.00',
+            reach_num: '120.00'
           }
-        },
+        }
       ],
       swiperOption: {
         direction: 'vertical', // 参数选项,显示小点
-        loop: true, //循环
-        autoplay: { //每张播放时长3秒，自动播放
+        loop: true, // 循环
+        autoplay: { // 每张播放时长3秒，自动播放
           delay: 1000
         },
         spaceBetween: 5,
-        speed: 1000, //滑动速度
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true //修改swiper的父元素时，自动初始化swiper
+        speed: 1000, // 滑动速度
+        observer: true, // 修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true // 修改swiper的父元素时，自动初始化swiper
       }
     }
   },
