@@ -23,19 +23,24 @@ module.exports = {
     quotes: ['error', 'single'],
     // allow async-await
     'generator-star-spacing': 'off',
-    // function() {}
-    // 函数声明时'('前是是否加一个空格
+    // 函数声明时'('前是是否加一个空格 function() {}
     'space-before-function-paren': ['error', 'never'],
+    'space-after-keywords': ["error", "never"],
     'keyword-spacing': ['error', {
- overrides: {
-      // if()    else if() 在if 和 else if 在关键字后禁止使用空格
-      if: { after: true },
-      // for(;;) for和( 之间禁止使用空格
-      for: { after: true },
-      // while()
-      while: { after: true }
-    }
-}]
+      // "before": true （默认）在关键字之前至少需要一个空格
+      // "before": false 在关键字之前禁止使用空格
+      // "after": true （默认）在关键字后至少需要一个空格
+      // "after": false 在关键字后禁止使用空格
+      // "overrides" 允许覆盖指定关键字的间距样式
+      overrides: {
+        // if() else if() 在if 和 else if 在关键字后禁止使用空格
+        if: { after: false },
+        // for(;;) for和( 之间禁止使用空格
+        for: { after: false },
+        // while()
+        while: { after: false }
+      }
+    }]
   },
   overrides: [
     {

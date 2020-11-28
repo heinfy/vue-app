@@ -82,20 +82,6 @@ export default {
         this.formatNum = s.join(dec)
       }
     }
-    /** 其他方法
-     let str = (money * 1).toFixed(2) + '';
-    if(str == "NaN") {
-      return money
-    } else {
-      let intSum = str.substring(0,str.indexOf(".")).replace( /\B(?=(?:\d{3})+$)/g, ',' );//取到整数部分
-      let dot = str.substring(str.length,str.indexOf("."))//取到小数部分搜索
-      let ret = intSum + dot;
-      if(ret.split(".")[1] == "00") {
-        ret = ret.split(".")[0];
-      }
-      return ret;
-    }
-     */
   }
 }
 </script>

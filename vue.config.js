@@ -1,14 +1,11 @@
 'use strict'
 const path = require('path')
-const package = require('./package.json')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = package.name
-
-const port = process.env.port || process.env.npm_config_port || 8087 // dev port
+const port = process.env.port || process.env.npm_config_port || 8087
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/vue-app/' : '/',
@@ -35,7 +32,7 @@ module.exports = {
     }
   },
   configureWebpack: {
-    name: name,
+    name: resolve('package.json'),
     resolve: {
       alias: {
         '@': resolve('src')
@@ -54,7 +51,6 @@ module.exports = {
     }
   },
   chainWebpack(config) {
-    // 它可以提高第一屏的速度，建议打开预加载
     // 它可以提高第一屏的速度，建议打开预加载
     config.plugin('preload').tap(() => [
       {
@@ -107,7 +103,12 @@ module.exports = {
                   name: 'chunk-libs',
                   test: /[\\/]node_modules[\\/]/,
                   priority: 10,
-                  chunks: 'initial' // only package third parties that are initially dependent 仅包装最初依赖的第三方
+                  chunks: 'initial' // 仅包装最初依赖的第三方
+                },
+                mintUI: {
+                  name: 'chunk-mintUI',
+                  priority: 20,
+                  test: /[\\/]node_modules[\\/]_?mint-ui(.*)/ 
                 },
                 // elementUI: {
                 //   name: 'chunk-elementUI', // split elementUI into a single package 将elementUI拆分为单个包

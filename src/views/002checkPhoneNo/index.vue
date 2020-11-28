@@ -19,10 +19,7 @@ export default {
   },
   methods: {
     check() {
-      const _this = this
-      const no = _this.phoneNo
-      const result = checkPhoneNo(no)
-      alert('检验结果为 ' + result)
+      alert('检验结果为 ' + checkPhoneNo(this.phoneNo))
     },
     keyUp() {
       // 只允许输入 数字 和 Xx

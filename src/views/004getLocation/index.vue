@@ -19,18 +19,17 @@ export default {
     }
   },
   methods: {
-    /* eslint-disable */
     getLocation() {
-      let _this = this
-      let localCallback = () => getPosition (
+      const _this = this
+      const localCallback = () => getPosition(
         data => getGeoData(data),
         err => getGeoError(err)
       )
       addSrcTag(_this.mapUrl, localCallback)
-      let getGeoData = data => {
-        console.log('JS获取定位成功', data) // {city: '',lat: '', lon: ''}
+      const getGeoData = data => {
+        console.log('JS获取定位成功', data)
       }
-      let getGeoError = err => {
+      const getGeoError = err => {
         console.log('JS获取定位失败', err)
       }
     }

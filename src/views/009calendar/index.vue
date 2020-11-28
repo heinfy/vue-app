@@ -10,7 +10,6 @@
 </template>
 
 <script>
-/* eslint-disable */ 
 import calendar from '@/components/Calendar/Calendar.vue'
 export default {
   name: 'test',

@@ -50,7 +50,6 @@
 
 <script>
 export default {
-  /* eslint-disable */ 
   name: 'swiper',
   data() {
     return {
@@ -67,15 +66,13 @@ export default {
     subTouchStart(e, index) {
       // 记录初始位置
       this.subStartX = e.touches[0].clientX
-      // console.log(this.subStartX)
     },
     // 滑动结束
     subTouchEnd(e, index) {
       // 当前滑动的父级元素
-      let parentElement = e.currentTarget.parentElement
+      const parentElement = e.currentTarget.parentElement
       // 记录结束位置
       this.subEndX = e.changedTouches[0].clientX
-      // console.log(this.subEndX)
       // 左滑
       if(parentElement.dataset.type === '0' && this.subStartX - this.subEndX > 30) {
         this.restSlide(this.subLastIndex)
@@ -92,11 +89,11 @@ export default {
     },
     // 复位滑动状态
     restSlide(index) {
-      let isNaN = Number.isNaN(index)
+      const isNaN = Number.isNaN(index)
       if(isNaN) {
         return false
       } else {
-        let listItems = document.querySelectorAll('.list-subItem')[index]
+        const listItems = document.querySelectorAll('.list-subItem')[index]
         listItems.dataset.type = 0
       }
     },
@@ -105,15 +102,13 @@ export default {
      */
     // 编辑
     subEditItem(id) {
-      // your code ...
-      console.log('编辑')
+      console.log('编辑 your code ...')
       // 复位
       this.restSlide(this.subLastIndex)
     },
     // 删除
     subDeleteItem(id) {
-      // your code ...
-      console.log('删除')
+      console.log('删除 your code ...')
       // 复位
       this.restSlide(this.subLastIndex)
     }
