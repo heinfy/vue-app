@@ -8,28 +8,13 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import { routes } from '@/router/routes'
 export default {
   name: 'mainList',
   data() {
     return {
-      list: routes
+      list: routes.filter(i => i.index > 0)
     }
-  },
-  beforeRouteEnter(to, from, next) {
-    const header = {
-      title: '功能模块列表',
-      closeShow: false,
-      backShow: false,
-      headerBor: true
-    }
-    next(vm => {
-      vm.changeHeaderControl(header)
-    })
-  },
-  methods: {
-    ...mapMutations(['changeHeaderControl'])
   }
 }
 </script>

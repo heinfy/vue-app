@@ -116,15 +116,17 @@ export default {
   font-size: 18px;
   text-align: center;
   .header-sides {
+    position: absolute;
+    top: 0;
     line-height: 44px;
     font-size: 20px;
   }
   .header-left {
-    float: left;
+    left: 0;
     padding-left: 18px;
   }
   .header-right {
-    float: right;
+    right: 0;
     padding-right: 18px;
   }
   .header-title {

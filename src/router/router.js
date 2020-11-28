@@ -16,7 +16,7 @@ routes.forEach((route) => {
     name: route.name,
     // component: () => import(`../views/${route.filePath}/${route.fileName}.vue`),
     /* eslint-disable */
-    component: () => loadingNotify(import(`../views/${route.filePath}/${route.fileName}.vue`)),
+    component: () => loadingNotify(import(`../views/${route.filePath}`)),
     /* eslint-enable */
     meta: {
       index: route.index,

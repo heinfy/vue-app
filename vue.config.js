@@ -1,12 +1,12 @@
 'use strict'
 const path = require('path')
-const defaultSettings = require('./src/settings.js')
+const package = require('./package.json')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'Vue H5 APP' // page title
+const name = package.name
 
 const port = process.env.port || process.env.npm_config_port || 8087 // dev port
 

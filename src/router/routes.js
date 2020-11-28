@@ -3,8 +3,7 @@ const routes = [
     index: 0,
     path: '/',
     name: 'index',
-    filePath: '000MainList',
-    fileName: 'mainList',
+    filePath: '000list',
     intro: '列表'
   },
   {
@@ -12,7 +11,6 @@ const routes = [
     path: '/checkidcard',
     name: 'checkidcard',
     filePath: '001checkIdCard',
-    fileName: 'checkIdCard',
     intro: '身份证检验功能'
   },
   {
@@ -20,7 +18,6 @@ const routes = [
     path: '/checkphoneno',
     name: 'checkphoneno',
     filePath: '002checkPhoneNo',
-    fileName: 'checkPhoneNo',
     intro: '手机号校验'
   },
   {
@@ -28,7 +25,6 @@ const routes = [
     path: '/mockdata',
     name: 'mockdata',
     filePath: '003mockjs',
-    fileName: 'mockData',
     intro: 'Mock模拟ajax'
   },
   {
@@ -36,7 +32,6 @@ const routes = [
     path: '/getlocation',
     name: 'getlocation',
     filePath: '004getLocation',
-    fileName: 'getlocation',
     intro: '腾讯地图获取定位'
   },
   {
@@ -44,7 +39,6 @@ const routes = [
     path: '/loading',
     name: 'loading',
     filePath: '005loading',
-    fileName: 'loading',
     intro: 'loading动画和软键盘搜索'
   },
   {
@@ -52,7 +46,6 @@ const routes = [
     path: '/calendar2',
     name: 'calendar2',
     filePath: '006calendar2',
-    fileName: 'calendar2',
     intro: 'calendar2组件'
   },
   {
@@ -60,7 +53,6 @@ const routes = [
     path: '/swiper',
     name: 'swiper',
     filePath: '007swiper',
-    fileName: 'swiper',
     intro: '自定义swiper组件'
   },
   {
@@ -68,7 +60,6 @@ const routes = [
     path: '/currency',
     name: 'currency',
     filePath: '008currency',
-    fileName: 'currency',
     intro: '金额格式化和日期选择组件'
   },
   {
@@ -76,7 +67,6 @@ const routes = [
     path: '/calendar1',
     name: 'calendar1',
     filePath: '009calendar',
-    fileName: 'calendar',
     intro: 'calendar1组件'
   },
   {
@@ -84,7 +74,6 @@ const routes = [
     path: '/infinitescroll',
     name: 'infinitescroll',
     filePath: '010infiniteScroll',
-    fileName: 'infiniteScroll',
     intro: '无限滚动组件'
   },
   {
@@ -92,7 +81,6 @@ const routes = [
     path: '/alloyfinger',
     name: 'alloyfinger',
     filePath: '011alloyfinger',
-    fileName: 'alloyfinger',
     intro: 'alloyfinger手势库'
   },
   {
@@ -100,7 +88,6 @@ const routes = [
     path: '/my_toast',
     name: 'myToast',
     filePath: '012myToast',
-    fileName: 'myToast',
     intro: 'myToast 提示组件'
   },
   {
@@ -108,7 +95,6 @@ const routes = [
     path: '/html2canvas',
     name: 'html2canvas',
     filePath: '013html2canvas',
-    fileName: 'html2canvas',
     intro: 'html2canvas绘图'
   },
   {
@@ -116,7 +102,6 @@ const routes = [
     path: '/prismjs',
     name: 'prismjs',
     filePath: '014prismjs',
-    fileName: 'prismjs',
     intro: 'prismjs-code动画'
   },
   {
@@ -124,7 +109,6 @@ const routes = [
     path: '/swiper_list',
     name: 'swiperList',
     filePath: '015swiperList',
-    fileName: 'swiperList',
     intro: 'swiperList组件'
   },
   {
@@ -132,7 +116,6 @@ const routes = [
     path: '/preview_img',
     name: 'previewImg',
     filePath: '016previewImg',
-    fileName: 'previewImg',
     intro: 'previewImg组件'
   },
   {
@@ -140,7 +123,6 @@ const routes = [
     path: '/pdf_preview',
     name: 'pdf_preview',
     filePath: '017pdfpreview',
-    fileName: 'pdfpreview',
     intro: 'PDF预览'
   },
   {
@@ -148,7 +130,6 @@ const routes = [
     path: '/tmp',
     name: 'tmp',
     filePath: 'tmp',
-    fileName: 'tmp',
     intro: '模板'
   }
 ]

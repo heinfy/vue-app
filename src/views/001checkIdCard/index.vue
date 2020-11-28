@@ -1,17 +1,16 @@
 <template>
   <div class="main-container">
-    <header-component :title="'身份证校验'"></header-component>
+    <header-component :title="'正则校验'"></header-component>
     <div class="check-id">
       <input class="input-id" type="text" v-model="idCard" @keyup="keyUp" placeholder="请输入身份证号" />
       <button class="subimt-btn" @click="check">校验</button>
-      <br />
       <p class="other">* 代码中 keyUp 方法中包含其他限制输入的正则判断</p>
     </div>
   </div>
 </template>
 
 <script>
-import { checkIdCard } from '@/libs/checkIdCard'
+import { checkIdCard } from '@/utils/checkIdCard'
 export default {
   name: 'checkIdCard',
   data() {

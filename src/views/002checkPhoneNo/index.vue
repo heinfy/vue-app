@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { checkPhoneNo } from '@/libs/checkPhoneNo'
+import { checkPhoneNo } from '@/utils/checkPhoneNo'
 export default {
   name: 'checkPhoneNo',
   data() {

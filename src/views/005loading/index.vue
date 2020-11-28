@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import Loading from '@/components/Loading/'
 export default {
   name: 'load',
@@ -26,16 +25,7 @@ export default {
       msg: ''
     }
   },
-  mounted() {
-    this.changeHeaderControl({
-      title: 'Loading',
-      closeShow: false,
-      backShow: true,
-      headerBor: true
-    })
-  },
   methods: {
-    ...mapMutations(['changeHeaderControl']),
     getMsg() {
       alert(this.msg)
     },
