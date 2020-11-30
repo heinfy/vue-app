@@ -108,7 +108,7 @@ module.exports = {
                 mintUI: {
                   name: 'chunk-mintUI',
                   priority: 20,
-                  test: /[\\/]node_modules[\\/]_?mint-ui(.*)/ 
+                  test: /[\\/]node_modules[\\/]_?mint-ui(.*)/
                 },
                 // elementUI: {
                 //   name: 'chunk-elementUI', // split elementUI into a single package 将elementUI拆分为单个包

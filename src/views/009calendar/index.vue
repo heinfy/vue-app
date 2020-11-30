@@ -14,7 +14,7 @@ import calendar from '@/components/Calendar/Calendar.vue'
 export default {
   name: 'test',
   components: {
-    'calendar': calendar
+    calendar: calendar
   },
   data() {
     return {
@@ -56,10 +56,10 @@ export default {
   methods: {
     // 格式化当前日期 YYYY-MM-DD
     getToday() {
-      let nowDate = new Date()
-      let yy = nowDate.getFullYear().toString()
-      let mm = (nowDate.getMonth() + 1 + '').padStart(2, '0')
-      let dd = (nowDate.getDate() + '').padStart(2, '0')
+      const nowDate = new Date()
+      const yy = nowDate.getFullYear().toString()
+      const mm = (nowDate.getMonth() + 1 + '').padStart(2, '0')
+      const dd = (nowDate.getDate() + '').padStart(2, '0')
       // let hh = nowDate.getHours().toString().padStart(2,'0')
       // let mt = (nowDate.getMinutes() + '').padStart(2,'0')
       // let ss = (nowDate.getSeconds() + '').padStart(2,'0')
@@ -67,7 +67,7 @@ export default {
     },
     // 组件传值
     getDateInfo(year, month) {
-      let _this = this
+      const _this = this
       _this.propsTime = `${year}-${month}`
       _this.calendarVisible = false
       // 模拟点击选取其他年月的ajax，假数据，只能显示19年 5 6 7三个月
@@ -100,8 +100,8 @@ export default {
       }, 100)
     },
     onValuesChange(picker, values) {
-      if (values[0] > values[1]) {
-        picker.setSlotValue(1, values[0]);
+      if(values[0] > values[1]) {
+        picker.setSlotValue(1, values[0])
       }
     }
   }

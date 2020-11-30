@@ -48,10 +48,10 @@ export default {
     clickOutside: {
       bind(el, bindings, vnode) {
         const handler = e => {
-          if (el.contains(e.target)) {
-            if (!vnode.context.isVisible) vnode.context.focus()
+          if(el.contains(e.target)) {
+            if(!vnode.context.isVisible) vnode.context.focus()
           } else {
-            if (vnode.context.isVisible) vnode.context.blur()
+            if(vnode.context.isVisible) vnode.context.blur()
           }
         }
         el.handler = handler
@@ -89,7 +89,7 @@ export default {
       const week = day === 0 ? 7 : day
       const startDay = currentFirstDay - week * 60 * 60 * 1000 * 24
       const arr = []
-      for (let i = 0; i < 42; i++) {
+      for(let i = 0; i < 42; i++) {
         arr.push(new Date(startDay + i * 60 * 60 * 1000 * 24))
       }
       return arr

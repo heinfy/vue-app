@@ -25,7 +25,6 @@ module.exports = {
     'generator-star-spacing': 'off',
     // 函数声明时'('前是是否加一个空格 function() {}
     'space-before-function-paren': ['error', 'never'],
-    'space-after-keywords': ["error", "never"],
     'keyword-spacing': ['error', {
       // "before": true （默认）在关键字之前至少需要一个空格
       // "before": false 在关键字之前禁止使用空格

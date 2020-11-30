@@ -57,7 +57,7 @@ export default {
     }
   },
   created() {
-    if (!this.customScroll) {
+    if(!this.customScroll) {
       document.addEventListener('scroll', this.scroll)
     }
   },
@@ -66,7 +66,7 @@ export default {
   },
   methods: {
     getPDFFile() {
-      if (!this.url) return
+      if(!this.url) return
       this.currentPage = 0
       // getDocument 加载要打开的PDF文件
       pdfJS.getDocument({
@@ -88,11 +88,11 @@ export default {
       })
     },
     scrollToPage(pageNo) {
-      if (this.currentPage === pageNo) return
+      if(this.currentPage === pageNo) return
       // 赋值给当前页
       this.currentPage = pageNo
       const list = []
-      for (let page = pageNo; page <= pageNo + this.renderPages; page++) {
+      for(let page = pageNo; page <= pageNo + this.renderPages; page++) {
         list.push(page)
       }
       this.renderList = list.filter(page => page <= this.docPages)
@@ -106,9 +106,9 @@ export default {
     renderPage(pageNo) {
       this.doc.getPage(pageNo).then(page => {
         const container = this.$refs.container[pageNo - 1]
-        if (!container) return
+        if(!container) return
         const canvas = container.querySelector('canvas')
-        if (!canvas || canvas.__rendered) return
+        if(!canvas || canvas.__rendered) return
         const ctx = canvas.getContext('2d')
         const dpr = window.devicePixelRatio || 1
         const bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1
@@ -135,7 +135,7 @@ export default {
       const scrollHeight = document.body.scrollHeight // 页面高度
       const screenHeight = window.screen.height // 屏幕高度
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop + screenHeight < scrollHeight) {
+      if(scrollTop + screenHeight < scrollHeight) {
         this.showPageNum = scrollTop <= 0 ? 1 : this.docPages - Math.floor((scrollHeight - scrollTop) / this.pageHeight)
       } else {
         this.showPageNum = this.docPages
@@ -143,9 +143,9 @@ export default {
       this.checkRender(document.documentElement)
     },
     checkRender(el) {
-      if (!this.pageHeight) return
+      if(!this.pageHeight) return
       let scrollTop = el.scrollTop
-      if (el === document.documentElement) {
+      if(el === document.documentElement) {
         scrollTop = el.scrollTop || window.pageYOffset || document.body.scrollTop
       }
       let page = Math.floor((scrollTop - this.offsetHeight) / this.pageHeight)

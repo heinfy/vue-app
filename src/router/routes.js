@@ -8,17 +8,17 @@ const routes = [
   },
   {
     index: 1,
-    path: '/checkidcard',
-    name: 'checkidcard',
-    filePath: '001checkIdCard',
-    intro: '身份证检验功能'
+    path: '/check',
+    name: 'check',
+    filePath: '001check',
+    intro: '字符串检验'
   },
   {
     index: 2,
     path: '/checkphoneno',
     name: 'checkphoneno',
     filePath: '002checkPhoneNo',
-    intro: '手机号校验'
+    intro: '待定组件'
   },
   {
     index: 3,
@@ -60,7 +60,7 @@ const routes = [
     path: '/currency',
     name: 'currency',
     filePath: '008currency',
-    intro: '金额格式化和日期选择组件'
+    intro: '日期选择组件'
   },
   {
     index: 9,

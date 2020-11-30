@@ -17,7 +17,7 @@ export const getParams = name => {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   console.log(window.location)
   const r = window.location.search.substr(1).match(reg)
-  if (r != null) return decodeURIComponent(r[2])
+  if(r != null) return decodeURIComponent(r[2])
   else return null
 }
 
@@ -26,19 +26,19 @@ export const getParams = name => {
  */
 export const getParamsFn = name => {
   // 未传参，返回空
-  if (!name) return null
+  if(!name) return null
   // 查询参数：先通过search取值，如果取不到就通过hash来取
   let after = window.location.search
   after = after.substr(1) + '&' + window.location.hash.split('?')[1]
   // 地址栏URL没有查询参数，返回空
-  if (!after) return null
+  if(!after) return null
   // 如果查询参数中没有"name"，返回空
-  if (after.indexOf(name) === -1) return null
+  if(after.indexOf(name) === -1) return null
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   // 当地址栏参数存在中文时，需要解码，不然会乱码
   const r = decodeURI(after).match(reg)
   // 如果url中"name"没有值，返回空
-  if (!r) return null
+  if(!r) return null
   return r[2]
 }
 
@@ -49,8 +49,8 @@ export const versions = () => {
   const u = navigator.userAgent; let os
   const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 // android终端
   const isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
-  if (isiOS) os = 'ios'
-  else if (isAndroid) os = 'android'
+  if(isiOS) os = 'ios'
+  else if(isAndroid) os = 'android'
   else os = ''
   return os
 }
@@ -72,7 +72,7 @@ export const getDate = (timestramp, format = 'yyyy-MM-dd hh:mm:ss') => {
     s: time.getSeconds(),
     i: time.getMilliseconds()
   }
-  for (var k in pattern) {
+  for(var k in pattern) {
     const regexp = new RegExp(`(${k}+)`)
     const replaceFn = (match) => {
       // 其他的都判断匹配长度是否大于1，大于则补充0，否则直接输出
@@ -94,7 +94,7 @@ export const getDate = (timestramp, format = 'yyyy-MM-dd hh:mm:ss') => {
  */
 export const countdown = (startTime, endTime, format = 'dd日h时mm分s秒i毫秒') => {
   const flag = startTime - endTime < 0
-  if (flag) {
+  if(flag) {
     // 获取毫秒数差
     const timeFrame = endTime - startTime
     // 获取天数差
@@ -119,9 +119,9 @@ export const countdown = (startTime, endTime, format = 'dd日h时mm分s秒i毫�
       i: milliseconds
     }
     const fillZero = num => num.toString().padStart(2, '0')
-    if (/d+/ig.test(format)) pattern = { d: days, h: hours, ...pattern }
+    if(/d+/ig.test(format)) pattern = { d: days, h: hours, ...pattern }
     else pattern = { h: days * 24 + hours, ...pattern }
-    for (var k in pattern) {
+    for(var k in pattern) {
       const regexp = new RegExp(`(${k}+)`)
       const replaceFn = (match) => match.length === 1 ? pattern[k] : fillZero(pattern[k])
       format = format.replace(regexp, replaceFn)
@@ -132,20 +132,20 @@ export const countdown = (startTime, endTime, format = 'dd日h时mm分s秒i毫�
   }
 }
 
-let util = {}
-util.isType = function () {
+const util = {}
+util.isType = function() {
   var isAndroid
-  var u = navigator.userAgent, app = navigator.appVersion
+  var u = navigator.userAgent; var app = navigator.appVersion
   isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
   return isAndroid
 }
-util.isiOS = function () {
+util.isiOS = function() {
   var isiOS
   var u = navigator.userAgent
   isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
   return isiOS
 }
-util.getType = function (obj) {
+util.getType = function(obj) {
   // tostring会返回对应不同的标签的构造函数
   var toString = Object.prototype.toString
   var map = {
@@ -160,34 +160,34 @@ util.getType = function (obj) {
     '[object Null]': 'null',
     '[object Object]': 'object'
   }
-  if (obj instanceof Element) {
+  if(obj instanceof Element) {
     return 'element'
   }
   return map[toString.call(obj)]
 }
-util.deepClone = function (data) {
+util.deepClone = function(data) {
   var type = util.getType(data)
   var obj
-  if (type === 'array') {
+  if(type === 'array') {
     obj = []
-  } else if (type === 'object') {
+  } else if(type === 'object') {
     obj = {}
   } else {
     // 不再具有下一层次
     return data
   }
-  if (type === 'array') {
-    for (var i = 0, len = data.length; i < len; i++) {
+  if(type === 'array') {
+    for(var i = 0, len = data.length; i < len; i++) {
       obj.push(util.deepClone(data[i]))
     }
-  } else if (type === 'object') {
-    for (var key in data) {
+  } else if(type === 'object') {
+    for(var key in data) {
       obj[key] = util.deepClone(data[key])
     }
   }
   return obj
 }
-util.dateFtt = function (fmt, date) {
+util.dateFtt = function(fmt, date) {
   var o = {
     'M+': date.getMonth() + 1, // 月份
     'd+': date.getDate(), // 日
@@ -195,11 +195,11 @@ util.dateFtt = function (fmt, date) {
     'm+': date.getMinutes(), // 分
     's+': date.getSeconds(), // 秒
     'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
-    'S': date.getMilliseconds() // 毫秒
+    S: date.getMilliseconds() // 毫秒
   }
-  if (/(y+)/.test(fmt)) { fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length)) }
-  for (var k in o) {
-    if (new RegExp('(' + k + ')').test(fmt)) { fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length))) }
+  if(/(y+)/.test(fmt)) { fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length)) }
+  for(var k in o) {
+    if(new RegExp('(' + k + ')').test(fmt)) { fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length))) }
   }
   return fmt
 }

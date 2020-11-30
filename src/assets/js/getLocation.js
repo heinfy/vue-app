@@ -1,7 +1,7 @@
 const getPosition = function(cb, errcb) {
   // eslint-disable-next-line
   let geolocation = new qq.maps.Geolocation('GZTBZ-BYWCX-32Z4O-Z3RDI-ZZMD5-NFFWK', 'myapp')
-  if (geolocation) {
+  if(geolocation) {
     const options = { timeout: 1000, failTipFlag: true }
     /* eslint-disable */
     geolocation.getLocation(position => {

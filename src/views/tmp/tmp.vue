@@ -8,10 +8,8 @@
 </template>
 
 <script>
-
 export default {
-  name: 'content',
-  mounted() {}
+  name: 'content'
 }
 </script>
 

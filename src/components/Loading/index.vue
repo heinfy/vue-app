@@ -21,7 +21,7 @@
     },
     computed: {
       style() {
-        if (!this.size) return
+        if(!this.size) return
         const value = `${this.size}px`
         return {
           width: value,

@@ -4,7 +4,7 @@ const MESSAGE = {
   duration: 1000, // 显示的时间 ms
   animateTime: 300, // 动画时间,表示这个组件切换show的动画时间
   install(Vue) {
-    if (typeof window !== 'undefined' && window.Vue) {
+    if(typeof window !== 'undefined' && window.Vue) {
       Vue = window.Vue
     }
     Vue.component('Message', Message)
@@ -12,11 +12,11 @@ const MESSAGE = {
     function msg(type, text, callBack) {
       let msg
       let duration = MESSAGE.duration
-      if (typeof text === 'string') {
+      if(typeof text === 'string') {
         msg = text
-      } else if (text instanceof Object) {
+      } else if(text instanceof Object) {
         msg = text.text || ''
-        if (text.duration) {
+        if(text.duration) {
           duration = text.duration
         }
       }
@@ -65,19 +65,19 @@ const MESSAGE = {
     // 挂载到vue原型上，暴露四个方法
     Vue.prototype.$message = {
       info(text, callBack) {
-        if (!text) return
+        if(!text) return
         msg('info', text, callBack)
       },
       success(text, callBack) {
-        if (!text) return
+        if(!text) return
         msg('success', text, callBack)
       },
       error(text, callBack) {
-        if (!text) return
+        if(!text) return
         msg('error', text, callBack)
       },
       warning(text, callBack) {
-        if (!text) return
+        if(!text) return
         msg('warning', text, callBack)
       }
     }
