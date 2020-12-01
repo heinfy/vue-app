@@ -14,8 +14,11 @@
         <input class="input__" type="text" v-model="amount" placeholder="格式化金额"/>
         <button class="subimt-btn" @click="formatMoney">格式化</button>
       </li>
+      <li>
+        <input class="input__" type="search" @keyup.enter="search" v-model="searchMsg" placeholder="输入后点击回车模拟搜索"/>
+      </li>
     </ul>
-    <p>* 包含其他限制输入的正则</p>
+    <p>* 代码中包含其他限制输入的正则</p>
   </div>
 </template>
 
@@ -28,7 +31,8 @@ export default {
       title: this.$route.meta.intro,
       identityCard: '', // '15260019811216600X'
       phoneNo: '',
-      amount: ''
+      amount: '',
+      searchMsg: ''
     }
   },
   methods: {
@@ -40,6 +44,9 @@ export default {
     },
     formatMoney() {
       formatMoney(this.amount)
+    },
+    search() {
+      alert(this.searchMsg)
     },
     // 其他方法
     otherFn() {
@@ -69,7 +76,7 @@ export default {
 
       // 测试 只允许输入 金额 100.98
       // this.inputString = this.inputString.replace(/^(\d+(\.\d{2})?)$/g, '')
-      // if (/^(\d+\.\d{1,2}|\d+)$/.test(this.inputString)) {
+      // if(/^(\d+\.\d{1,2}|\d+)$/.test(this.inputString)) {
       //   console.log(true)
       // } else {
       //   console.log(false)

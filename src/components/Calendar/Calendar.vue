@@ -147,10 +147,10 @@ export default {
                 if(rightNow == reservations[k].date) {
                   inOfMonth.type = "1"
                   inOfMonth.isDone = "doing"
-                } else if (rightNow > reservations[k].date) {
+                } else if(rightNow > reservations[k].date) {
                   inOfMonth.type = "0"
                   inOfMonth.isDone = "pass"
-                } else if (rightNow < reservations[k].date) {
+                } else if(rightNow < reservations[k].date) {
                   inOfMonth.type = "2"
                   inOfMonth.isDone = "will"
                 }

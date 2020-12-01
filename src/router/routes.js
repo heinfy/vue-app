@@ -29,17 +29,17 @@ const routes = [
   },
   {
     index: 4,
-    path: '/getlocation',
-    name: 'getlocation',
-    filePath: '004getLocation',
-    intro: '腾讯地图获取定位'
+    path: '/map',
+    name: 'map-pos',
+    filePath: '004map',
+    intro: '地图获取定位'
   },
   {
     index: 5,
-    path: '/loading',
-    name: 'loading',
-    filePath: '005loading',
-    intro: 'loading动画和软键盘搜索'
+    path: '/components',
+    name: 'components',
+    filePath: '005components',
+    intro: '通用组件'
   },
   {
     index: 6,
