@@ -15,31 +15,31 @@ const routes = [
   },
   {
     index: 2,
-    path: '/checkphoneno',
-    name: 'checkphoneno',
-    filePath: '002checkPhoneNo',
-    intro: '待定组件'
+    path: '/store',
+    name: 'store',
+    filePath: '002storeDemo',
+    intro: '状态管理'
   },
   {
     index: 3,
     path: '/mockdata',
     name: 'mockdata',
     filePath: '003mockjs',
-    intro: 'Mock模拟ajax'
+    intro: '待定'
   },
   {
     index: 4,
-    path: '/getlocation',
-    name: 'getlocation',
-    filePath: '004getLocation',
-    intro: '腾讯地图获取定位'
+    path: '/map',
+    name: 'map-pos',
+    filePath: '004map',
+    intro: '地图获取定位'
   },
   {
     index: 5,
-    path: '/loading',
-    name: 'loading',
-    filePath: '005loading',
-    intro: 'loading动画和软键盘搜索'
+    path: '/components',
+    name: 'components',
+    filePath: '005components',
+    intro: '通用组件'
   },
   {
     index: 6,

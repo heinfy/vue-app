@@ -32,7 +32,7 @@ export default {
       let _this = this
       const curDate = _this.deformat(_this.showMonth)
       let currentIndex = _this.monthList.indexOf(curDate) + num
-      if (currentIndex !== -1 && currentIndex < _this.monthList.length) {
+      if(currentIndex !== -1 && currentIndex < _this.monthList.length) {
         const result = _this.monthList[currentIndex]
         _this.getCalendar(...result.split('-'))
         _this.showMonthActive = result
@@ -64,12 +64,12 @@ export default {
       const monthArray = [31, 28 + isLeapYear, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
       const weeekLines = Math.ceil((monthArray[month - 1] + firstDay) / 7)
       let calendar = []
-      for (let i = 0; i < weeekLines; i++) {
+      for(let i = 0; i < weeekLines; i++) {
         let weeekLinesInfo = []
-        for (let j = 0; j < 7; j++) {
+        for(let j = 0; j < 7; j++) {
           const cellNo = i * 7 + j
           const datePerLine = cellNo - firstDay + 1
-          if (datePerLine <= 0 || datePerLine > monthArray[month - 1]) {
+          if(datePerLine <= 0 || datePerLine > monthArray[month - 1]) {
             let outOfMonth = {
               'appo': '',
               'time': `${year}-${month}`,
@@ -85,9 +85,9 @@ export default {
             }
             let everyDate = `${year}-${month}-${inOfMonth.date}`
             const reservations = _this.infoList
-            for (let k = 0; k < reservations.length; k++) {
+            for(let k = 0; k < reservations.length; k++) {
               // console.log(everyDate, reservations[k]);
-              if (everyDate == reservations[k]) {
+              if(everyDate == reservations[k]) {
                 inOfMonth.appo = '1'
               }
             }
@@ -113,8 +113,8 @@ export default {
     },
     // 调用父组件定义的方法
     showInfo(info) {
-      if (info === 'cancel') return this.$emit('showInfo', 'cancel')
-      if (info.appo === '' || info.appo === '0') return
+      if(info === 'cancel') return this.$emit('showInfo', 'cancel')
+      if(info.appo === '' || info.appo === '0') return
       this.$emit('showInfo', `${info.time}-${info.date}`)
     }
   }

@@ -25,9 +25,6 @@ import vMessage from './components/Message/index'
 // xbj toast组件
 import Toast from './components/Toast'
 
-// mock 数据
-import './mock'
-
 import 'mint-ui/lib/style.css'
 
 Vue.component(Loadmore.name, Loadmore)
@@ -40,8 +37,6 @@ Vue.use(Toast)
 Vue.use(Header)
 Vue.use(vMessage)
 Vue.extend(Alert)
-
-console.log(process.env)
 
 Vue.use(AlloyFingerPlugin, {
   AlloyFinger

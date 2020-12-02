@@ -1,6 +1,6 @@
 <template>
   <transition :name="transitionName">
-    <keep-alive include="mainList">
+    <keep-alive include="list">
       <router-view class="child-view"></router-view>
     </keep-alive>
   </transition>
@@ -14,16 +14,9 @@ export default {
       transitionName: 'rightin'
     }
   },
-  /* eslint-disable */
-  mounted() {
-  },
-  methods: {
-  },
   watch: {
     $route(to, from) {
-      // console.log('path', this.$router.currentRoute)
-      // console.log('from', from.name)
-      if (to.meta.index < from.meta.index) {
+      if(to.meta.index < from.meta.index) {
         this.transitionName = 'leftin'
       } else {
         this.transitionName = 'rightin'
