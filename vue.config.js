@@ -19,17 +19,17 @@ module.exports = {
       errors: true
     },
     // before方法：能够在其他所有的中间件之前执行自定义的中间件
-    // before: require('./mock/mock-server.js'),
-    proxy: {
-      '/dev-api': {
-        target: '1.1.1.1',
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/dev-api/': ''
-        }
-      }
-    }
+    before: require('./mock/mock-server.js'),
+    // proxy: {
+    //   '/dev-api': {
+    //     target: '1.1.1.1',
+    //     changeOrigin: true,
+    //     ws: true,
+    //     pathRewrite: {
+    //       '^/dev-api/': ''
+    //     }
+    //   }
+    // }
   },
   configureWebpack: {
     name: resolve('package.json'),

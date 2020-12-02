@@ -15,17 +15,17 @@ const routes = [
   },
   {
     index: 2,
-    path: '/checkphoneno',
-    name: 'checkphoneno',
-    filePath: '002checkPhoneNo',
-    intro: '待定组件'
+    path: '/store',
+    name: 'store',
+    filePath: '002storeDemo',
+    intro: '状态管理'
   },
   {
     index: 3,
     path: '/mockdata',
     name: 'mockdata',
     filePath: '003mockjs',
-    intro: 'Mock模拟ajax'
+    intro: '待定'
   },
   {
     index: 4,

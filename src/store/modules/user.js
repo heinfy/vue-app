@@ -26,7 +26,6 @@ const actions = {
       })
     })
   }
-
 }
 
 export default {
