@@ -50,9 +50,6 @@ export default {
     this.propsInfoList = JSON.stringify(this.middle)
     this.propsTime = this.getToday()
   },
-  mounted() {
-    window.alert('测试时间为19年 9|10|11月，完成是在10月')
-  },
   methods: {
     // 格式化当前日期 YYYY-MM-DD
     getToday() {
@@ -60,10 +57,7 @@ export default {
       const yy = nowDate.getFullYear().toString()
       const mm = (nowDate.getMonth() + 1 + '').padStart(2, '0')
       const dd = (nowDate.getDate() + '').padStart(2, '0')
-      // let hh = nowDate.getHours().toString().padStart(2,'0')
-      // let mt = (nowDate.getMinutes() + '').padStart(2,'0')
-      // let ss = (nowDate.getSeconds() + '').padStart(2,'0')
-      return `${yy}-${mm}-${dd}` // -${hh}-${mt}-${ss}
+      return `${yy}-${mm}-${dd}`
     },
     // 组件传值
     getDateInfo(year, month) {

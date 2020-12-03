@@ -16,7 +16,6 @@ export default {
   created() {
     this.monthList = JSON.parse(this.propMonthList)
     this.infoList = JSON.parse(this.propsInfoList)
-    // console.log(this.monthList, this.infoList)
     const date = this.getToday()
     const time = date.slice(0, 2)
     this.getCalendar(...time)
@@ -86,7 +85,6 @@ export default {
             let everyDate = `${year}-${month}-${inOfMonth.date}`
             const reservations = _this.infoList
             for(let k = 0; k < reservations.length; k++) {
-              // console.log(everyDate, reservations[k]);
               if(everyDate == reservations[k]) {
                 inOfMonth.appo = '1'
               }
@@ -96,7 +94,6 @@ export default {
         }
         calendar.push(weeekLinesInfo)
       }
-      // window.console.log(calendar)
       _this.calendarData = JSON.stringify(calendar)
     },
     // 格式化当前日期 YYYY-MM-DD
@@ -109,7 +106,6 @@ export default {
       let mt = (nowDate.getMinutes() + '').padStart(2, '0')
       let ss = (nowDate.getSeconds() + '').padStart(2, '0')
       return [yy, mm, dd, hh, mt, ss]
-      // return `${yy}-${mm}-${dd}-${hh}-${mt}-${ss}`
     },
     // 调用父组件定义的方法
     showInfo(info) {
