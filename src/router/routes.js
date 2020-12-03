@@ -24,7 +24,7 @@ const routes = [
     index: 3,
     path: '/pdf_preview',
     name: 'pdf_preview',
-    filePath: '003pdfPeview',
+    filePath: '003pdfPreview',
     intro: 'PDF预览'
   },
   {
@@ -57,10 +57,10 @@ const routes = [
   },
   {
     index: 8,
-    path: '/currency',
-    name: 'currency',
-    filePath: '008currency',
-    intro: '日期选择组件'
+    path: '/alloyfinger',
+    name: 'alloyfinger',
+    filePath: '008alloyfinger',
+    intro: 'alloyfinger手势库'
   },
   {
     index: 9,
@@ -75,13 +75,6 @@ const routes = [
     name: 'infinitescroll',
     filePath: '010infiniteScroll',
     intro: '无限滚动组件'
-  },
-  {
-    index: 11,
-    path: '/alloyfinger',
-    name: 'alloyfinger',
-    filePath: '011alloyfinger',
-    intro: 'alloyfinger手势库'
   },
   {
     index: 12,

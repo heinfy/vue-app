@@ -144,22 +144,24 @@ export default {
 
 <style lang="less" scoped>
 .date-picker {
-  margin-top: 20px;
   input {
-    border: 1px solid gray;
-    margin-left: 10px;
-    height: 24px;
-    line-height: 24px;
-    padding-left: 5px;
-    width: 140px;
-    font-size: 16px;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    min-width: 200px;
+    height: 44px;
+    line-height: 44px;
+    margin: 20px auto 0;
+    border: 1px solid #a5c5b5;
+    border-radius: 2px;
   }
   .pannel {
     width: 32 * 7px;
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
-    box-shadow: 2px 2px 2px pink, -2px -2px 2px pink;
-    background-color: #f6f6f6;
+    box-shadow: 2px 2px 2px #7c8166, -2px -2px 2px #a5c5b5;
     .pannel-nav {
       height: 30px;
       display: flex;

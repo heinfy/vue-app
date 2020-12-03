@@ -2,9 +2,12 @@
   <div class="main-container">
     <header-component :title="'组件'"></header-component>
     <div class="load-ctn">
-      <button @click="loadingAnimate">loading 动画</button>
-      <button @click="changeFlag">calendar1 日历</button>
-      <button @click="changeFlag">calendar2 日历</button>
+      <button class="cpt" @click="loadingAnimate">loading 动画</button>
+      <button class="cpt" @click="showCalendar1">calendar1 日历</button>
+      <button class="cpt" @click="showCalendar2">calendar2 日历</button>
+      <!-- v-model 可以替换 :value 和 @input -->
+      <!-- :value="now" @input="val=>value=val" ===== v-model="now" -->
+      <date-picker v-model="now"></date-picker>
       <loading v-show="loadAnimation" class="loading" :size="40"></loading>
 
       <!-- calendar1 日历组件 -->
@@ -30,17 +33,20 @@
 import Loading from '@/components/Loading/'
 import calendar1 from '@/components/Calendar/Calendar.vue'
 import calendar2 from '@/components/Calendar2/Calendar.vue'
+import DatePicker from '@/components/DatePicker'
 export default {
   name: 'components',
   components: {
     Loading,
     calendar1,
-    calendar2
+    calendar2,
+    DatePicker
   },
   data() {
     return {
       loadAnimation: false,
-            calendarVisible: true,
+      // 日历组件1
+      calendarVisible: false,
       propsTime: '',
       propsInfoList: '',
       middle: [
@@ -60,13 +66,16 @@ export default {
           info: '我要去吃大餐'
         }
       ],
+      // 日历组件2
       calendarVisible2: false,
       propsInfoList2: [
         '2019-07-08',
         '2019-08-12',
         '2019-09-23'
       ],
-      propMonthList2: ['2019-07', '2019-08', '2019-09']
+      propMonthList2: ['2019-07', '2019-08', '2019-09'],
+      // DatePicker
+      now: new Date()
     }
   },
   created() {
@@ -83,6 +92,9 @@ export default {
       }, 2000)
     },
     // 日历组件1
+    showCalendar1() {
+      this.calendarVisible = !this.calendarVisible
+    },
     getToday() {
       const nowDate = new Date()
       const yy = nowDate.getFullYear().toString()
@@ -95,25 +107,25 @@ export default {
       const _this = this
       _this.propsTime = `${year}-${month}`
       _this.calendarVisible = false
-      // 模拟点击选取其他年月的ajax，假数据，只能显示19年 5 6 7三个月
+      // 模拟点击选取其他年月的ajax
       setTimeout(() => {
         _this.propsInfoList = []
         let middle
-        if(month === '05') {
+        if(month === '01') {
           middle = [
             {
               id: '232',
-              date: '2019-05-10',
+              date: '2021-01-10',
               info: '我要去吃小餐'
             }
           ]
-        } else if(month === '06') {
+        } else if(month === '02') {
           middle = _this.middle
-        } else if(month === '07') {
+        } else if(month === '03') {
           middle = [
             {
               id: '232',
-              date: '2019-07-10',
+              date: '2021-03-10',
               info: '我要去吃小餐'
             }
           ]
@@ -132,9 +144,9 @@ export default {
     // 日历组件2
     getScheduleInfo(info) {
       console.log(info)
-      if(info === 'cancel') this.changeFlag()
+      if(info === 'cancel') this.showCalendar2()
     },
-    changeFlag() {
+    showCalendar2() {
       this.calendarVisible2 = !this.calendarVisible2
     }
   }
@@ -145,7 +157,7 @@ export default {
 .main-container {
   margin-top: 44px;
   .load-ctn {
-    button {
+    .cpt {
       display: block;
       background-color: #f5f5f5;
       min-width: 200px;
