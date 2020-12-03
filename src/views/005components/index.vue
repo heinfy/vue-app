@@ -3,22 +3,76 @@
     <header-component :title="'组件'"></header-component>
     <div class="load-ctn">
       <button @click="loadingAnimate">loading 动画</button>
+      <button @click="changeFlag">calendar1 日历</button>
+      <button @click="changeFlag">calendar2 日历</button>
       <loading v-show="loadAnimation" class="loading" :size="40"></loading>
+
+      <!-- calendar1 日历组件 -->
+      <calendar1
+        v-if="calendarVisible"
+        @getDateInfo="getDateInfo"
+        :propsInfoList="propsInfoList"
+        :propsTime="propsTime"
+      />
+      <!-- calendar2 日历组件 -->
+      <calendar2
+        v-if="calendarVisible2"
+        class="calendar-box"
+        :propsInfoList="JSON.stringify(propsInfoList2)"
+        :propMonthList="JSON.stringify(propMonthList2)"
+        @showInfo="getScheduleInfo2"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import Loading from '@/components/Loading/'
+import calendar1 from '@/components/Calendar/Calendar.vue'
+import calendar2 from '@/components/Calendar2/Calendar.vue'
 export default {
   name: 'components',
   components: {
-    Loading
+    Loading,
+    calendar1,
+    calendar2
   },
   data() {
     return {
-      loadAnimation: false
+      loadAnimation: false,
+            calendarVisible: true,
+      propsTime: '',
+      propsInfoList: '',
+      middle: [
+        {
+          id: '232',
+          date: '2020-11-01',
+          info: '我要去吃大餐'
+        },
+        {
+          id: '292',
+          date: '2020-12-25',
+          info: '我要去吃大餐'
+        },
+        {
+          id: '369',
+          date: '2021-01-02',
+          info: '我要去吃大餐'
+        }
+      ],
+      calendarVisible2: false,
+      propsInfoList2: [
+        '2019-07-08',
+        '2019-08-12',
+        '2019-09-23'
+      ],
+      propMonthList2: ['2019-07', '2019-08', '2019-09']
     }
+  },
+  created() {
+    // 模拟首屏ajax请求，将当月数据传入组件中
+    this.propsInfoList = JSON.stringify(this.middle)
+    this.propsTime = this.getToday()
   },
   methods: {
     loadingAnimate() {
@@ -27,6 +81,61 @@ export default {
         alert('模拟结束！')
         this.loadAnimation = false
       }, 2000)
+    },
+    // 日历组件1
+    getToday() {
+      const nowDate = new Date()
+      const yy = nowDate.getFullYear().toString()
+      const mm = (nowDate.getMonth() + 1 + '').padStart(2, '0')
+      const dd = (nowDate.getDate() + '').padStart(2, '0')
+      return `${yy}-${mm}-${dd}`
+    },
+    // 组件传值
+    getDateInfo(year, month) {
+      const _this = this
+      _this.propsTime = `${year}-${month}`
+      _this.calendarVisible = false
+      // 模拟点击选取其他年月的ajax，假数据，只能显示19年 5 6 7三个月
+      setTimeout(() => {
+        _this.propsInfoList = []
+        let middle
+        if(month === '05') {
+          middle = [
+            {
+              id: '232',
+              date: '2019-05-10',
+              info: '我要去吃小餐'
+            }
+          ]
+        } else if(month === '06') {
+          middle = _this.middle
+        } else if(month === '07') {
+          middle = [
+            {
+              id: '232',
+              date: '2019-07-10',
+              info: '我要去吃小餐'
+            }
+          ]
+        } else {
+          middle = ''
+        }
+        _this.propsInfoList = JSON.stringify(middle)
+        _this.calendarVisible = true
+      }, 100)
+    },
+    onValuesChange(picker, values) {
+      if(values[0] > values[1]) {
+        picker.setSlotValue(1, values[0])
+      }
+    },
+    // 日历组件2
+    getScheduleInfo(info) {
+      console.log(info)
+      if(info === 'cancel') this.changeFlag()
+    },
+    changeFlag() {
+      this.calendarVisible2 = !this.calendarVisible2
     }
   }
 }
@@ -52,6 +161,14 @@ export default {
       top: 50%;
       transform: translate(-50%, -50%);
       z-index: 100;
+    }
+    .calendar-box {
+      background-color: #f5f5f5;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 15;
     }
   }
 }

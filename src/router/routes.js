@@ -22,10 +22,10 @@ const routes = [
   },
   {
     index: 3,
-    path: '/mockdata',
-    name: 'mockdata',
-    filePath: '003mockjs',
-    intro: '待定'
+    path: '/pdf_preview',
+    name: 'pdf_preview',
+    filePath: '003pdfpPeview',
+    intro: 'PDF预览'
   },
   {
     index: 4,
@@ -43,10 +43,10 @@ const routes = [
   },
   {
     index: 6,
-    path: '/calendar2',
-    name: 'calendar2',
-    filePath: '006calendar2',
-    intro: 'calendar2组件'
+    path: '/preview_img',
+    name: 'previewImg',
+    filePath: '006previewImg',
+    intro: 'previewImg组件'
   },
   {
     index: 7,
@@ -110,20 +110,6 @@ const routes = [
     name: 'swiperList',
     filePath: '015swiperList',
     intro: 'swiperList组件'
-  },
-  {
-    index: 16,
-    path: '/preview_img',
-    name: 'previewImg',
-    filePath: '016previewImg',
-    intro: 'previewImg组件'
-  },
-  {
-    index: 17,
-    path: '/pdf_preview',
-    name: 'pdf_preview',
-    filePath: '017pdfpreview',
-    intro: 'PDF预览'
   },
   {
     index: 100,
