@@ -1,12 +1,9 @@
 <template>
   <div class="calendar-container">
-    <!-- // 显示本月日期 2019-6，可点击 -->
-    <div class="show-date" @click="clickData">{{ showDate }}</div>
-    <!-- // 今天的日期 2019-6-6 -->
-    <div class="now-time">今日：{{ exactTime }}</div>
-    <!-- // 日历组件 -->
+    <p class="show-date" @click="clickData">
+      <button>{{ showDate }}</button>
+    </p>
     <div class="calendar">
-      <!-- // 日历组件头部 -->
       <ul class="calendar-header">
         <li>日</li>
         <li>一</li>
@@ -16,7 +13,6 @@
         <li>五</li>
         <li>六</li>
       </ul>
-      <!-- // 日历组件主体 -->
       <ul class="calendar-body">
         <li class="calendar-row" v-for="(item, index) in JSON.parse(calendarData)" :key="index">
           <!-- // 注意给 不同的日子加类名
@@ -26,10 +22,10 @@
           <span
             v-for="(subItem, subIndex) in item"
             :class="[
-              subIndex == 0 || subIndex == 6 ? 'weekend' : 'weekday',
-              subItem.type === '1' ? 'exact-time' : '',
-              subItem.type == '0' ? 'already-time' : '',
-              subItem.type === '2' ? 'soon-time' : ''
+              subIndex == 0 || subIndex == 6  ? 'weekend' : 'weekday',
+              subItem.type === '1'  ? 'exact-time' : '',
+              subItem.type == '0'  ? 'already-time' : '',
+              subItem.type === '2'  ? 'soon-time' : ''
             ]"
             @click="showInfo(subItem)"
             :key="subIndex"
@@ -50,10 +46,8 @@
 </template>
 
 <script>
-/* eslint-disable */
-import { MessageBox } from 'mint-ui'
 export default {
-  name: "calendar-test",
+  name: 'calendar-test',
   props: {
     propsTime: String,
     propsInfoList: String
@@ -83,16 +77,16 @@ export default {
     this.time = this.propsTime.split('-')
     // 获取今天 '2019-06-06'
     const date = this.getToday()
-    this.exactTime = date.slice(0,3).join('-')
+    this.exactTime = date.slice(0, 3).join('-')
     // 日历组件
     this.getCalendar(...(this.time))
     // 组装 picker 数组
-    this.getSlotsArray(...(date.slice(0,2)))
+    this.getSlotsArray(...(date.slice(0, 2)))
   },
   methods: {
     // 日历组件
     getCalendar(year, month) {
-      let _this = this
+      const _this = this
       // 转存当天 '2019-06-06'
       const rightNow = _this.exactTime
       // 拼接 显示日历上的年月 '2019-05'
@@ -102,14 +96,14 @@ export default {
       // 获取第一天周几
       const firstDay = firstDate.getDay()
       // 判断是否为闰年
-      const isLeapYear = year % 100 == 0? year % 400 == 0? 1: 0: year % 4 == 0 ? 1: 0
+      const isLeapYear = year % 100 === 0 ? year % 400 === 0 ? 1 : 0 : year % 4 === 0 ? 1 : 0
       // 获取今年每个月的天数
       const monthArray = [31, 28 + isLeapYear, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
       // 计算星期的行数
-      const weeekLines =Math.ceil((monthArray[month - 1] + firstDay)/7)
-      let calendar = []
+      const weeekLines = Math.ceil((monthArray[month - 1] + firstDay) / 7)
+      const calendar = []
       for(let i = 0; i < weeekLines; i++) {
-        let weeekLinesInfo = []
+        const weeekLinesInfo = []
         for(let j = 0; j < 7; j++) {
           // 计算每个单元格的序号
           const cellNo = i * 7 + j
@@ -118,41 +112,41 @@ export default {
           // 排除空白格
           if(datePerLine <= 0 || datePerLine > monthArray[month - 1]) {
             // 不存在的显示为 null 和 ''
-            let outOfMonth = {
-              "type" : 'null',
-              "date" : ''
+            const outOfMonth = {
+              type: 'null',
+              date: ''
             }
             weeekLinesInfo[j] = outOfMonth
           } else {
-            let day = (datePerLine + '').padStart(2,'0')
-            let inOfMonth = {
-              "type" : '',
-              "date" : day,
-              "isDone": '',
-              "infor": ''
+            const day = (datePerLine + '').padStart(2, '0')
+            const inOfMonth = {
+              type: '',
+              date: day,
+              isDone: '',
+              infor: ''
             }
             // 今天背景变成一个红圈,这是今天 => rightNow
             const propsDate = `${year}-${month}-${day}`
             // 比较每月的今天
-            if(propsDate == rightNow){
-              inOfMonth.type = "1"
+            if(propsDate === rightNow) {
+              inOfMonth.type = '1'
             }
             const reservations = JSON.parse(_this.infoList)
             // 将 父组件传的 list 赋值在日历上
             // 预定列表 和 当月每一天比较
             for(let k = 0; k < reservations.length; k++) {
-              if(propsDate == reservations[k].date){
-                // inOfMonth.type = "1"
+              if(propsDate === reservations[k].date) {
+                // inOfMonth.type = '1'
                 inOfMonth.infor = reservations[k].info
-                if(rightNow == reservations[k].date) {
-                  inOfMonth.type = "1"
-                  inOfMonth.isDone = "doing"
+                if(rightNow === reservations[k].date) {
+                  inOfMonth.type = '1'
+                  inOfMonth.isDone = 'doing'
                 } else if(rightNow > reservations[k].date) {
-                  inOfMonth.type = "0"
-                  inOfMonth.isDone = "pass"
+                  inOfMonth.type = '0'
+                  inOfMonth.isDone = 'pass'
                 } else if(rightNow < reservations[k].date) {
-                  inOfMonth.type = "2"
-                  inOfMonth.isDone = "will"
+                  inOfMonth.type = '2'
+                  inOfMonth.isDone = 'will'
                 }
               }
             }
@@ -162,35 +156,32 @@ export default {
         calendar.push(weeekLinesInfo)
       }
       window.console.log(calendar)
-      // 即将遍历二维数组
       _this.calendarData = JSON.stringify(calendar)
     },
-    // 格式化当前日期 YYYY-MM-DD
     getToday() {
-      let nowDate = new Date()
-      let yy = nowDate.getFullYear().toString()
-      let mm = (nowDate.getMonth() + 1 + '').padStart(2,'0')
-      let dd = (nowDate.getDate() + '').padStart(2,'0')
-      let hh = nowDate.getHours().toString().padStart(2,'0')
-      let mt = (nowDate.getMinutes() + '').padStart(2,'0')
-      let ss = (nowDate.getSeconds() + '').padStart(2,'0')
+      const nowDate = new Date()
+      const yy = nowDate.getFullYear().toString()
+      const mm = (nowDate.getMonth() + 1 + '').padStart(2, '0')
+      const dd = (nowDate.getDate() + '').padStart(2, '0')
+      const hh = nowDate.getHours().toString().padStart(2, '0')
+      const mt = (nowDate.getMinutes() + '').padStart(2, '0')
+      const ss = (nowDate.getSeconds() + '').padStart(2, '0')
       return [yy, mm, dd, hh, mt, ss]
-      // return `${yy}-${mm}-${dd}-${hh}-${mt}-${ss}`
     },
     // 组装 picker 数组
-    getSlotsArray(year, month){
-      let _this = this
-      let yearArray = []
-      for(let i = -10 ; i <= 10 ; i ++){
+    getSlotsArray(year, month) {
+      const _this = this
+      const yearArray = []
+      for(let i = -10; i <= 10; i++) {
         yearArray.push(year - 1 + i)
       }
-      let monthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-      let slots = [
+      const monthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      const slots = [
         {
           flex: 1,
-          values:yearArray,
+          values: yearArray,
           textAlign: 'right',
-          className:"slot1",
+          className: 'slot1',
           defaultIndex: 11
         },
         {
@@ -200,9 +191,9 @@ export default {
         },
         {
           flex: 1,
-          values:monthArray,
+          values: monthArray,
           textAlign: 'left',
-          className:"slot3",
+          className: 'slot3',
           defaultIndex: month - 1
         }
       ]
@@ -210,24 +201,21 @@ export default {
       console.log('_this.slots', _this.slots)
     },
     // 显示日期弹窗
-    clickData(){
-      alert('postcss-px-to-viewport 和 picker 貌似不兼容')
+    clickData() {
       this.popupVisible = true
     },
     // 取消按钮
-    cancelFunc(){
-      this.popupVisible = false;
+    cancelFunc() {
+      this.popupVisible = false
     },
     // 确认按钮
     sureFunc() {
-      let _this = this
-      _this.popupVisible = false
-      const clickData = _this.$refs.picker.getValues()
+      this.popupVisible = false
+      const clickData = this.$refs.picker.getValues()
       const year = clickData[0] + ''
-      const month = (clickData[1] + '').padStart(2,'0')
-      const day = _this.time[2]
-      _this.getDateInfo(year, month)
-      _this.getCalendar(year, month)
+      const month = (clickData[1] + '').padStart(2, '0')
+      this.getDateInfo(year, month)
+      this.getCalendar(year, month)
     },
     // 调用父组件定义的方法
     getDateInfo(year, month) {
@@ -235,19 +223,11 @@ export default {
     },
     // 点击展示某天的事项信息
     showInfo(info) {
-      let _this = this
       const infor = info
       if(infor.infor) {
-        const [year, month] = _this.showDate.split('-')
-        console.log(year, month, info)
+        const [year, month] = this.showDate.split('-')
         const titleDate = `${year}-${month}-${info.date}`
-        const preview = info.infor
-        MessageBox({
-          title: titleDate,
-          message: preview,
-          showCancelButton: false,
-          closeOnClickModal: true
-        })
+        alert(titleDate + info.infor)
       }
     }
   }
@@ -265,8 +245,8 @@ export default {
 }
 .calendar-container .picker-toolbar {
   width: 375px;
-  border-bottom: 1px solid #ef4123;
-  height: 50px;
+  border-bottom: 1px solid #535050;
+  height: 34px;
   background-color: #ffffff;
 }
 .calendar-container .picker-items {
@@ -274,14 +254,14 @@ export default {
 }
 .picker_cancel {
   float: left;
-  width: 40px;
+  width: 26px;
   margin-top: 8px;
   margin-left: 10px;
 }
 
 .picker_sure {
   float: right;
-  width: 40px;
+  width: 26px;
   margin-top: 8px;
   margin-right: 10px;
 }
@@ -289,40 +269,31 @@ export default {
 
 <style scoped>
 .show-date {
+  margin: 0 auto;
   width: 120px;
   height: 32px;
   line-height: 32px;
   text-align: center;
   font-size: 14px;
-  /* vue-cli2.x 报错，但是在vue-cli3.x没影响 */
-  background-clip: text;
-  color: transparent;
-  color: #3b3b3b;
-  border: 1px solid #42b983;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px #42b983;
-}
-
-.now-time {
-  height: 30px;
-  line-height: 30px;
-  font: 400 normal 14px 'SourceHanSansCN-Bold/SimSun/SimHei/Microsoft YaHei';
-  background-clip: text;
-  color: #333;
+  color: red;
 }
 
 .calendar-container {
   width: 375px;
-  height: 622px;
   background-color: #f5f5f5;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
 }
 
 .calendar {
   width: 375px;
   padding: 5px 0;
   background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0px 10px 10px #42b983;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .calendar .calendar-header {
