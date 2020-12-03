@@ -24,7 +24,7 @@ const routes = [
     index: 3,
     path: '/pdf_preview',
     name: 'pdf_preview',
-    filePath: '003pdfpPeview',
+    filePath: '003pdfPeview',
     intro: 'PDF预览'
   },
   {
