@@ -64,10 +64,10 @@ const routes = [
   },
   {
     index: 9,
-    path: '/calendar1',
-    name: 'calendar1',
-    filePath: '009calendar',
-    intro: 'calendar1组件'
+    path: '/prismjs',
+    name: 'prismjs',
+    filePath: '009prismjs',
+    intro: 'prismjs-code动画'
   },
   {
     index: 10,
@@ -77,32 +77,11 @@ const routes = [
     intro: '无限滚动组件'
   },
   {
-    index: 12,
-    path: '/my_toast',
-    name: 'myToast',
-    filePath: '012myToast',
-    intro: 'myToast 提示组件'
-  },
-  {
-    index: 13,
+    index: 11,
     path: '/html2canvas',
     name: 'html2canvas',
-    filePath: '013html2canvas',
+    filePath: '011html2canvas',
     intro: 'html2canvas绘图'
-  },
-  {
-    index: 14,
-    path: '/prismjs',
-    name: 'prismjs',
-    filePath: '014prismjs',
-    intro: 'prismjs-code动画'
-  },
-  {
-    index: 15,
-    path: '/swiper_list',
-    name: 'swiperList',
-    filePath: '015swiperList',
-    intro: 'swiperList组件'
   },
   {
     index: 100,

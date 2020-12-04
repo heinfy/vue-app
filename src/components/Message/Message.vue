@@ -1,6 +1,4 @@
 <template>
-  <!-- https://www.jianshu.com/p/b931abe383e3 -->
-  <!-- https://www.jianshu.com/p/e6e8c45e7fd6 -->
   <transition name="fade">
     <div class="message" :class="type" v-show="show">
       <span class="text">{{ text }}</span>

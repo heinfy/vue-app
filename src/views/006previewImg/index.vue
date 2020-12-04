@@ -17,16 +17,24 @@
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
+      <swiper-component></swiper-component>
     </div>
   </div>
 </template>
 
 <script>
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import SwiperComponent from '@/components/ScrollList'
+
 import 'swiper/css/swiper.css'
 
 export default {
   name: 'previewImg',
+    components: {
+    Swiper,
+    SwiperSlide,
+    SwiperComponent
+  },
   data() {
     return {
       swiperOptions: {
@@ -62,10 +70,6 @@ export default {
         }
       }
     }
-  },
-  components: {
-    Swiper,
-    SwiperSlide
   },
   directives: {
     swiper: directive

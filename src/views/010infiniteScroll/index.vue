@@ -15,7 +15,7 @@
 <script>
 /* eslint-disable */
 export default {
-  name: 'loadmore1',
+  name: 'loadmore',
   data() {
     return {
       list: [],
@@ -28,14 +28,11 @@ export default {
       let _this = this
       let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 2, 3, 4, 0, 2, 3, 4, 7, 8, 9, 0, 2, 3, 4, 0, 2,]
       if(_this.pagenum === 1) {
-        console.log(_this.pagenum)
         _this.list = arr
         _this.pagenum = _this.pagenum + 1
       } else if(_this.pagenum === 4) {
-        console.log('over')
         _this.busy = true
       } else {
-        console.log(_this.pagenum)
         _this.pagenum = _this.pagenum + 1
         _this.list = [..._this.list, ...arr]
       }

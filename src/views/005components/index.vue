@@ -5,6 +5,9 @@
       <button class="cpt" @click="loadingAnimate">loading 动画</button>
       <button class="cpt" @click="showCalendar1">calendar1 日历</button>
       <button class="cpt" @click="showCalendar2">calendar2 日历</button>
+      <button class="cpt" @click="showToast(1)">Toast - 1</button>
+      <button class="cpt" @click="showToast(2)">Toast - 2</button>
+      <button class="cpt" @click="showToast(3)">Toast - 3</button>
       <!-- v-model 可以替换 :value 和 @input -->
       <!-- :value="now" @input="val=>value=val" ===== v-model="now" -->
       <date-picker v-model="now"></date-picker>
@@ -33,6 +36,7 @@
 import Loading from '@/components/Loading/'
 import calendar1 from '@/components/Calendar/Calendar.vue'
 import calendar2 from '@/components/Calendar2/Calendar.vue'
+import MyToast from '@/components/MyToast'
 import DatePicker from '@/components/DatePicker'
 export default {
   name: 'components',
@@ -87,7 +91,6 @@ export default {
     loadingAnimate() {
       this.loadAnimation = true
       setTimeout(() => {
-        alert('模拟结束！')
         this.loadAnimation = false
       }, 2000)
     },
@@ -141,8 +144,23 @@ export default {
         picker.setSlotValue(1, values[0])
       }
     },
+    // showToast
+    showToast(type) {
+      if(type === 1) {
+        MyToast({ name: '严重警告' }).$on('results', text => {
+          console.log(text)
+        })
+      } else if(type === 2) {
+        this.$message.info('普通消息')
+        // this.$message.error('错误消息')
+        // this.$message.warning('警告消息')
+        // this.$message.success('成功消息')
+      } else if(type === 3) {
+        this.$toast('这是一条测试信息', 1500)
+      }
+    },
     // 日历组件2
-    getScheduleInfo(info) {
+    getScheduleInfo2(info) {
       console.log(info)
       if(info === 'cancel') this.showCalendar2()
     },
