@@ -1,6 +1,3 @@
-/**
- * Created by misterXu on 2018/5/7.
- */
 import ToastComponent from './Toast.vue'
 
 const Toast = {}

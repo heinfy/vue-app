@@ -6,29 +6,20 @@ import store from './store/index.js'
 // alloyfinger 手势库
 import AlloyFinger from 'alloyfinger'
 import AlloyFingerPlugin from 'alloyfinger/vue/alloy_finger_vue.js'
-
 // 移动端Vue.js图片预览插件
 import preview from 'vue-photo-preview'
-import 'vue-photo-preview/dist/skin.css'
-
-// ajax
-import axios from 'axios'
-
-import { Loadmore, InfiniteScroll, Spinner, Picker, Popup } from 'mint-ui'
-
+import { InfiniteScroll, Picker, Popup } from 'mint-ui'
 import Header from './components/Header'
-
-// alert 组件
-import Alert from './components/Alert/index.vue'
-import vMessage from './components/Message/index'
-
-// xbj toast组件
+// toast组件
+import MyToast from './components/MyToast/MyToast.vue'
+import vMessage from './components/Message'
 import Toast from './components/Toast'
 
-import 'mint-ui/lib/style.css'
+import 'vue-photo-preview/dist/skin.css'
+import 'mint-ui/lib/picker/style.css'
+import 'mint-ui/lib/popup/style.css'
+// import 'mint-ui/lib/style.css'
 
-Vue.component(Loadmore.name, Loadmore)
-Vue.component(Spinner.name, Spinner)
 Vue.component(Picker.name, Picker)
 Vue.component(Popup.name, Popup)
 
@@ -36,7 +27,7 @@ Vue.use(InfiniteScroll)
 Vue.use(Toast)
 Vue.use(Header)
 Vue.use(vMessage)
-Vue.extend(Alert)
+Vue.extend(MyToast)
 
 Vue.use(AlloyFingerPlugin, {
   AlloyFinger
@@ -54,7 +45,6 @@ Vue.use(preview, { // 配置项
   clickToCloseNonZoomable: true // 点击图片应关闭图库，仅当图像小于视口的大小时
 })
 
-Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
 new Vue({
